@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/pcimgBadgeDetail"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:tint="#11000000"
+        android:background="@color/placeholder_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
+    <TextView
+        android:id="@+id/pctvTitleLeague"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/placeholder_bg"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pcimgBadgeDetail"
+        app:layout_constraintTop_toTopOf="@+id/pcimgBadgeDetail"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/viewline_1pc"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pcimgBadgeDetail"
+        app:layout_constraintTop_toBottomOf="@+id/pctvTitleLeague"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/pctvCountryLeague"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/placeholder_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/viewline_1pc"
+        app:layout_constraintTop_toBottomOf="@+id/viewline_1pc"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/pctvGenderLeague"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/placeholder_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/viewline_1pc"
+        app:layout_constraintTop_toBottomOf="@+id/pctvCountryLeague"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/pctvSportLeague"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/placeholder_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/viewline_1pc"
+        app:layout_constraintTop_toBottomOf="@+id/pctvGenderLeague"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/pctvWebsiteLeague"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:background="@color/placeholder_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/viewline_1pc"
+        app:layout_constraintTop_toBottomOf="@+id/pctvSportLeague"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/pctextDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/placeholder_bg"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/pcimgBadgeDetail"
+        app:layout_constraintStart_toStartOf="@+id/pcimgBadgeDetail"
+        app:layout_constraintTop_toBottomOf="@+id/pcimgBadgeDetail"
+        tools:ignore="MissingConstraints" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/pcimgYoutube"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        android:src="@color/placeholder_bg"
+        app:layout_constraintEnd_toEndOf="@+id/viewline_1pc"
+        app:layout_constraintTop_toBottomOf="@+id/pctvWebsiteLeague" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/pcimgTwitter"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:scaleType="centerCrop"
+        android:src="@color/placeholder_bg"
+        app:layout_constraintEnd_toStartOf="@+id/pcimgYoutube"
+        app:layout_constraintTop_toBottomOf="@+id/pctvWebsiteLeague" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/pcimgFacebook"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@color/placeholder_bg"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/pcimgTwitter"
+        app:layout_constraintTop_toBottomOf="@+id/pctvWebsiteLeague" />
+
+    <View
+        android:id="@+id/pcviewline_2"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/pctextDescription"
+        app:layout_constraintTop_toBottomOf="@+id/pctextDescription"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/pctvDescriptionLeague"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/placeholder_bg"
+        app:layout_constraintBottom_toTopOf="@+id/pcbtnCheckSchedule"
+        app:layout_constraintEnd_toEndOf="@+id/pcviewline_2"
+        app:layout_constraintStart_toStartOf="@+id/pcviewline_2"
+        app:layout_constraintTop_toBottomOf="@+id/pcviewline_2"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/pcbtnCheckSchedule"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/placeholder_bg"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/pctvDescriptionLeague"
+        app:layout_constraintStart_toStartOf="@+id/pctvDescriptionLeague"
+        app:layout_constraintTop_toBottomOf="@+id/pctvDescriptionLeague" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

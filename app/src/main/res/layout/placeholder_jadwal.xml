@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/pctvEventLeague"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:background="@color/placeholder_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pctvDateEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@color/placeholder_bg"
+            android:text="date event"
+            android:textColor="@color/placeholder_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pctvEventLeague" />
+
+        <TextView
+            android:id="@+id/pctxtCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=":"
+            android:gravity="center_vertical"
+            android:textSize="65dp"
+            android:textColor="@color/placeholder_bg"
+            android:background="@color/placeholder_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pctvDateEvent" />
+
+        <TextView
+            android:id="@+id/pctxtStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="FT"
+            android:textColor="@color/placeholder_bg"
+            android:background="@color/placeholder_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pctxtCenter" />
+
+        <TextView
+            android:id="@+id/pctvScoreHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="8dp"
+            android:text="0"
+            android:textColor="@color/placeholder_bg"
+            android:background="@color/placeholder_bg"
+            android:textSize="60dp"
+            app:layout_constraintBottom_toBottomOf="@+id/pctxtCenter"
+            app:layout_constraintEnd_toStartOf="@+id/pctxtCenter"
+            app:layout_constraintTop_toTopOf="@+id/pctxtCenter" />
+
+        <TextView
+            android:id="@+id/pctvScoreAway"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="0"
+            android:textSize="60dp"
+            android:textColor="@color/placeholder_bg"
+            android:background="@color/placeholder_bg"
+            app:layout_constraintBottom_toBottomOf="@+id/pctxtCenter"
+            app:layout_constraintStart_toEndOf="@+id/pctxtCenter"
+            app:layout_constraintTop_toTopOf="@+id/pctxtCenter" />
+
+        <ImageView
+            android:id="@+id/pcimgHomeListEvent"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/placeholder_bg"
+            app:layout_constraintBottom_toBottomOf="@+id/pctvScoreHome"
+            app:layout_constraintEnd_toStartOf="@+id/pctvScoreHome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pctvScoreHome" />
+
+        <ImageView
+            android:id="@+id/pcimgAwayListEvent"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/placeholder_bg"
+            app:layout_constraintBottom_toBottomOf="@+id/pctvScoreAway"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pctvScoreAway"
+            app:layout_constraintTop_toTopOf="@+id/pctvScoreAway" />
+
+        <TextView
+            android:id="@+id/pctvHomeNameTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="Home Team"
+            android:background="@color/placeholder_bg"
+            android:textColor="@color/placeholder_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/pcimgHomeListEvent"
+            app:layout_constraintStart_toStartOf="@+id/pcimgHomeListEvent"
+            app:layout_constraintTop_toBottomOf="@+id/pcimgHomeListEvent" />
+
+        <TextView
+            android:id="@+id/pctvAwayNameTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/placeholder_bg"
+            android:background="@color/placeholder_bg"
+            android:text="Away Team"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/pcimgAwayListEvent"
+            app:layout_constraintStart_toStartOf="@+id/pcimgAwayListEvent"
+            app:layout_constraintTop_toBottomOf="@+id/pcimgAwayListEvent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

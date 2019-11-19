@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.detail_jadwal.DetailJadwalActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:background="@android:color/white"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
+
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/smNextMatch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                app:layout_anchorGravity="end|bottom">
+
+                <include layout="@layout/placeholder_jadwal"/>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+<!--            <androidx.core.widget.NestedScrollView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+
+
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_anchor="@id/app_bar"-->
+<!--                    app:layout_anchorGravity="end|bottom"-->
+<!--                    android:layout_margin="16dp"-->
+<!--                    app:cardCornerRadius="5dp">-->
+
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:background="@color/colorPrimary">-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/tvEventLeagueDet"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="16dp"-->
+<!--                            android:text="Home team vs away team"-->
+<!--                            android:textColor="@android:color/white"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/tvDateEventDet"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="8dp"-->
+<!--                            android:textColor="@android:color/white"-->
+<!--                            android:text="date event"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/tvEventLeagueDet" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/txtCenter"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="8dp"-->
+<!--                            android:text=":"-->
+<!--                            android:textColor="@android:color/white"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:textSize="65dp"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/tvDateEventDet" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/txtStatus"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="8dp"-->
+<!--                            android:textColor="@android:color/white"-->
+<!--                            android:layout_marginBottom="16dp"-->
+<!--                            android:text="FT"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/txtCenter" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/tvScoreHomeDet"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="8dp"-->
+<!--                            android:textColor="@android:color/white"-->
+<!--                            android:layout_marginEnd="24dp"-->
+<!--                            android:layout_marginBottom="8dp"-->
+<!--                            android:text="0"-->
+<!--                            android:textSize="60dp"-->
+<!--                            app:layout_constraintBottom_toBottomOf="@+id/txtCenter"-->
+<!--                            app:layout_constraintEnd_toStartOf="@+id/txtCenter"-->
+<!--                            app:layout_constraintTop_toTopOf="@+id/txtCenter" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/tvScoreAwayDet"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="24dp"-->
+<!--                            android:textColor="@android:color/white"-->
+<!--                            android:layout_marginTop="8dp"-->
+<!--                            android:layout_marginBottom="8dp"-->
+<!--                            android:text="0"-->
+<!--                            android:textSize="60dp"-->
+<!--                            app:layout_constraintBottom_toBottomOf="@+id/txtCenter"-->
+<!--                            app:layout_constraintStart_toEndOf="@+id/txtCenter"-->
+<!--                            app:layout_constraintTop_toTopOf="@+id/txtCenter" />-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/imgHomeEventDet"-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="100dp"-->
+<!--                            android:layout_marginStart="16dp"-->
+<!--                            android:layout_marginEnd="16dp"-->
+<!--                            android:outlineAmbientShadowColor="@android:color/white"-->
+<!--                            android:layout_marginBottom="16dp"-->
+<!--                            android:src="@drawable/ic_trophy_home"-->
+<!--                            app:layout_constraintBottom_toBottomOf="@+id/tvScoreHomeDet"-->
+<!--                            app:layout_constraintEnd_toStartOf="@+id/tvScoreHomeDet"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="@+id/tvScoreHomeDet" />-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/imgAwayEventDet"-->
+<!--                            android:layout_width="100dp"-->
+<!--                            android:layout_height="100dp"-->
+<!--                            android:layout_marginStart="16dp"-->
+<!--                            android:layout_marginEnd="16dp"-->
+<!--                            android:layout_marginBottom="16dp"-->
+<!--                            android:src="@drawable/ic_trophy_away"-->
+<!--                            app:layout_constraintBottom_toBottomOf="@+id/tvScoreAwayDet"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toEndOf="@+id/tvScoreAwayDet"-->
+<!--                            app:layout_constraintTop_toTopOf="@+id/tvScoreAwayDet" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/tvHomeNameTeamDet"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="8dp"-->
+<!--                            android:layout_marginBottom="16dp"-->
+<!--                            android:textColor="@android:color/white"-->
+<!--                            android:text="Home Team"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="@+id/imgHomeEventDet"-->
+<!--                            app:layout_constraintStart_toStartOf="@+id/imgHomeEventDet"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/imgHomeEventDet" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/tvAwayNameTeamDet"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="8dp"-->
+<!--                            android:layout_marginBottom="16dp"-->
+<!--                            android:textColor="@android:color/white"-->
+<!--                            android:text="Away Team"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="@+id/imgAwayEventDet"-->
+<!--                            app:layout_constraintStart_toStartOf="@+id/imgAwayEventDet"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/imgAwayEventDet" />-->
+
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--                </androidx.cardview.widget.CardView>-->
+<!--            </androidx.core.widget.NestedScrollView>-->
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_detail_jadwal" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

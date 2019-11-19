@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvEventLeague"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Home team vs away team"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDateEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="date event"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvEventLeague" />
+
+        <TextView
+            android:id="@+id/txtCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=":"
+            android:gravity="center_vertical"
+            android:textSize="65dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateEvent" />
+
+        <TextView
+            android:id="@+id/txtStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="FT"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCenter" />
+
+        <TextView
+            android:id="@+id/tvScoreHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="8dp"
+            android:text="0"
+            android:textSize="60dp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtCenter"
+            app:layout_constraintEnd_toStartOf="@+id/txtCenter"
+            app:layout_constraintTop_toTopOf="@+id/txtCenter" />
+
+        <TextView
+            android:id="@+id/tvScoreAway"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="0"
+            android:textSize="60dp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtCenter"
+            app:layout_constraintStart_toEndOf="@+id/txtCenter"
+            app:layout_constraintTop_toTopOf="@+id/txtCenter" />
+
+        <ImageView
+            android:id="@+id/imgHomeListEvent"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_trophy_home"
+            app:layout_constraintBottom_toBottomOf="@+id/tvScoreHome"
+            app:layout_constraintEnd_toStartOf="@+id/tvScoreHome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvScoreHome" />
+
+        <ImageView
+            android:id="@+id/imgAwayListEvent"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_trophy_away"
+            app:layout_constraintBottom_toBottomOf="@+id/tvScoreAway"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvScoreAway"
+            app:layout_constraintTop_toTopOf="@+id/tvScoreAway" />
+
+        <TextView
+            android:id="@+id/tvHomeNameTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="Home Team"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imgHomeListEvent"
+            app:layout_constraintStart_toStartOf="@+id/imgHomeListEvent"
+            app:layout_constraintTop_toBottomOf="@+id/imgHomeListEvent" />
+
+        <TextView
+            android:id="@+id/tvAwayNameTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="Away Team"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imgAwayListEvent"
+            app:layout_constraintStart_toStartOf="@+id/imgAwayListEvent"
+            app:layout_constraintTop_toBottomOf="@+id/imgAwayListEvent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
