@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.View
 import android.webkit.WebChromeClient
 import com.google.android.material.snackbar.Snackbar
@@ -103,14 +104,34 @@ class DetailJadwalActivity : AppCompatActivity() {
         tvShotHome.text = item.intHomeScore ?: "0"
         tvShotAway.text = item.intAwayScore ?: "0"
 
-        val oldValue = "watch?v="
-        val newValue = "embed/"
+        val oldVideo = "watch?v="
+        val newVideo = "embed/"
         wbHighLight.settings.javaScriptEnabled = true
         wbHighLight.webChromeClient = WebChromeClient()
-        wbHighLight.loadUrl(item.strVideo.replace(oldValue, newValue))
+        wbHighLight.loadUrl(item.strVideo.replace(oldVideo, newVideo))
+
+        val oldValue = ";"
+        val newValue = "\n"
+        tvHomeGK.text = item.strHomeLineupGoalkeeper.replace(oldValue, newValue)
+        tvAwayGK.text = item.strAwayLineupGoalkeeper.replace(oldValue, newValue)
+        tvHomeDF.text = item.strHomeLineupDefense.replace(oldValue, newValue)
+        tvAwayDF.text = item.strAwayLineupDefense.replace(oldValue, newValue)
+        tvHomeMF.text = item.strHomeLineupMidfield.replace(oldValue, newValue)
+        tvAwayMF.text = item.strAwayLineupMidfield.replace(oldValue, newValue)
+        tvHomeFW.text = item.strHomeLineupForward.replace(oldValue, newValue)
+        tvAwayFW.text = item.strAwayLineupForward.replace(oldValue, newValue)
+        tvHomeSub.text = item.strHomeLineupSubstitutes.replace(oldValue, newValue)
+        tvAwaySub.text = item.strAwayLineupSubstitutes.replace(oldValue, newValue)
+        tvYellowHomeDet.text = item.strHomeYellowCards.replace(oldValue, newValue)
+        tvYellowAwayDet.text = item.strAwayYellowCards.replace(oldValue, newValue)
+        tvRedHomeDet.text = item.strHomeRedCards.replace(oldValue, newValue)
+        tvRedAwayDet.text = item.strAwayRedCards.replace(oldValue, newValue)
 
 
-
+        GlideApp.with(this)
+            .load(item.strThumb)
+            .apply(RequestOptions.placeholderOf(R.drawable.image_placeholder).error(R.drawable.image_placeholder))
+            .into(imgPosterMatchDet)
     }
 
     private fun initData(item: Events) {
@@ -122,6 +143,12 @@ class DetailJadwalActivity : AppCompatActivity() {
             tvScoreHomeDet.text = item.intHomeScore
             tvScoreAwayDet.text = item.intAwayScore
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_app_bar, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     private fun getViewModel(apiRepository: ApiRepository): DetailJadwalViewModel {

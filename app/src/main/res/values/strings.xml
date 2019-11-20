@@ -99,4 +99,5 @@
     <string name="website">Website</string>
     <string name="description">Description</string>
     <string name="title_activity_detail_jadwal">DetailJadwalActivity</string>
+    <string name="search">search</string>
 </resources>
