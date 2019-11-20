@@ -1,7 +1,11 @@
 package com.amary.kade_footballeague.ui.detail_jadwal
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.webkit.WebChromeClient
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -17,6 +21,7 @@ import com.amary.kade_footballeague.rest.response.model.Events
 import com.amary.kade_footballeague.utils.GlideApp
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_detail_jadwal.*
+import kotlinx.android.synthetic.main.content_detail_jadwal.*
 
 class DetailJadwalActivity : AppCompatActivity() {
 
@@ -28,6 +33,7 @@ class DetailJadwalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_jadwal)
 //        setSupportActionBar(toolbar)
+        wbHighLight.setBackgroundColor(Color.BLACK)
 
         apiRepository = ApiRepository(apiService)
         viewModel = getViewModel(apiRepository)
@@ -37,6 +43,8 @@ class DetailJadwalActivity : AppCompatActivity() {
 
         viewModel.getLeagueDetail(id).observe(this, Observer {
             if (it != null){
+                smDetailMatch.visibility = View.GONE
+                nsDetailMatch.visibility = View.VISIBLE
                 for (i in it.events){
                     initData(i)
                     initDetail(i)
@@ -50,41 +58,70 @@ class DetailJadwalActivity : AppCompatActivity() {
     }
 
     private fun initLogo(idHomeTeam: String, idAwayTeam: String) {
-//        viewModel.getHomeTeam(idHomeTeam).observe(this, Observer {
-//            if (it != null){
-//                for (i in it.teams){
-//                    GlideApp.with(this)
-//                        .load(i.strTeamBadge)
-//                            .apply(RequestOptions.placeholderOf(R.drawable.ic_trophy_home).error(R.drawable.ic_trophy_home))
-//                            .into(imgHomeEventDet)
-//                }
-//            }
-//        })
-//        viewModel.getAwayTeam(idAwayTeam).observe(this, Observer {
-//            if (it != null){
-//                for (i in it.teams){
-//                    GlideApp.with(this)
-//                        .load(i.strTeamBadge)
-//                        .apply(RequestOptions.placeholderOf(R.drawable.ic_trophy_away).error(R.drawable.ic_trophy_away))
-//                        .into(imgAwayEventDet)
-//                }
-//            }
-//        })
+        viewModel.getHomeTeam(idHomeTeam).observe(this, Observer {
+            if (it != null){
+                for (i in it.teams){
+                    GlideApp.with(this)
+                        .load(i.strTeamBadge)
+                        .apply(RequestOptions.placeholderOf(R.drawable.ic_trophy_home).error(R.drawable.ic_trophy_home))
+                        .into(imgHomeEventDet)
+                }
+            }
+        })
+        viewModel.getAwayTeam(idAwayTeam).observe(this, Observer {
+            if (it != null){
+                for (i in it.teams){
+                    GlideApp.with(this)
+                        .load(i.strTeamBadge)
+                        .apply(RequestOptions.placeholderOf(R.drawable.ic_trophy_away).error(R.drawable.ic_trophy_away))
+                        .into(imgAwayEventDet)
+                }
+            }
+        })
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private fun initDetail(item: Events) {
+        val homeYellowCard = item.strHomeYellowCards.split(";").map { it.trim() }
+        val awayYellowCard = item.strAwayYellowCards.split(";").map { it.trim() }
+        val homeRedCard = item.strHomeRedCards.split(";").map { it.trim() }
+        val awayRedCard = item.strAwayRedCards.split(";").map { it.trim() }
+
+        homeYellowCard.forEach {
+            Log.e("HOME CARD", it)
+        }
+
+        awayYellowCard.forEach {
+            Log.e("AWAY CARD", it)
+        }
+
+        tvYellowHome.text = (homeYellowCard.size - 1).toString()
+        tvYellowAway.text = (awayYellowCard.size - 1).toString()
+        tvRedHome.text = (homeRedCard.size - 1).toString()
+        tvRedAway.text = (awayRedCard.size - 1).toString()
+
+        tvShotHome.text = item.intHomeScore ?: "0"
+        tvShotAway.text = item.intAwayScore ?: "0"
+
+        val oldValue = "watch?v="
+        val newValue = "embed/"
+        wbHighLight.settings.javaScriptEnabled = true
+        wbHighLight.webChromeClient = WebChromeClient()
+        wbHighLight.loadUrl(item.strVideo.replace(oldValue, newValue))
+
+
 
     }
 
     private fun initData(item: Events) {
-//        tvEventLeagueDet.text = item.strEvent
-//        tvDateEventDet.text = item.dateEvent
-//        tvHomeNameTeamDet.text = item.strHomeTeam
-//        tvAwayNameTeamDet.text = item.strAwayTeam
-//        if (item.intAwayScore != null && item.intHomeScore != null){
-//            tvScoreHomeDet.text = item.intHomeScore
-//            tvScoreAwayDet.text = item.intAwayScore
-//        }
+        tvEventLeagueDet.text = item.strEvent
+        tvDateEventDet.text = item.dateEvent
+        tvHomeNameTeamDet.text = item.strHomeTeam
+        tvAwayNameTeamDet.text = item.strAwayTeam
+        if (item.intAwayScore != null && item.intHomeScore != null){
+            tvScoreHomeDet.text = item.intHomeScore
+            tvScoreAwayDet.text = item.intAwayScore
+        }
     }
 
     private fun getViewModel(apiRepository: ApiRepository): DetailJadwalViewModel {

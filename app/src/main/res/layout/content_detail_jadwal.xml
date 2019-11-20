@@ -77,6 +77,15 @@
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toTopOf="@+id/linearLayout">
 
+            <TextView
+                android:id="@+id/tvYellowHome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
@@ -88,7 +97,15 @@
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintTop_toTopOf="@+id/linearLayout"
             android:orientation="horizontal">
-
+            <TextView
+                android:id="@+id/tvYellowAway"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
@@ -100,7 +117,15 @@
             app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
             app:layout_constraintStart_toStartOf="@+id/linearLayout2"
             app:layout_constraintTop_toTopOf="@+id/linearLayout2">
-
+            <TextView
+                android:id="@+id/tvRedHome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
@@ -112,7 +137,15 @@
             app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
             app:layout_constraintTop_toTopOf="@+id/linearLayout2">
-
+            <TextView
+                android:id="@+id/tvRedAway"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
@@ -124,10 +157,19 @@
             app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
             app:layout_constraintStart_toStartOf="@+id/linearLayout5"
             app:layout_constraintTop_toTopOf="@+id/linearLayout5">
-
+            <TextView
+                android:id="@+id/tvShotHome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout8"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@drawable/shape_score"
@@ -136,7 +178,34 @@
             app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
             app:layout_constraintTop_toTopOf="@+id/linearLayout5">
 
+            <TextView
+                android:id="@+id/tvShotAway"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@android:color/white"
+                android:textSize="28sp"
+                android:textStyle="bold" />
         </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvWebView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+            <WebView
+                android:id="@+id/wbHighLight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </androidx.cardview.widget.CardView>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>
