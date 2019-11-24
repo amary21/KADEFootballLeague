@@ -53,7 +53,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="8dp"
-                    android:src="@drawable/ic_yellow_card" />
+                    android:src="@drawable/ic_yellow_card"
+                    android:contentDescription="@string/todo" />
             </LinearLayout>
 
             <LinearLayout
@@ -71,7 +72,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="8dp"
-                    android:src="@drawable/ic_red_card" />
+                    android:src="@drawable/ic_red_card"
+                    android:contentDescription="@string/todo" />
             </LinearLayout>
 
             <LinearLayout
@@ -89,7 +91,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="8dp"
-                    android:src="@drawable/ic_football" />
+                    android:src="@drawable/ic_football"
+                    android:contentDescription="@string/todo" />
             </LinearLayout>
 
             <LinearLayout
@@ -105,7 +108,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="0"
+                    android:text="@string/_0"
                     android:textColor="@android:color/white"
                     android:textSize="28sp"
                     android:textStyle="bold" />
@@ -126,7 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="0"
+                    android:text="@string/_0"
                     android:textColor="@android:color/white"
                     android:textSize="28sp"
                     android:textStyle="bold" />
@@ -146,7 +149,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="0"
+                    android:text="@string/_0"
                     android:textColor="@android:color/white"
                     android:textSize="28sp"
                     android:textStyle="bold" />
@@ -167,7 +170,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="0"
+                    android:text="@string/_0"
                     android:textColor="@android:color/white"
                     android:textSize="28sp"
                     android:textStyle="bold" />
@@ -187,7 +190,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="0"
+                    android:text="@string/_0"
                     android:textColor="@android:color/white"
                     android:textSize="28sp"
                     android:textStyle="bold" />
@@ -208,7 +211,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="0"
+                    android:text="@string/_0"
                     android:textColor="@android:color/white"
                     android:textSize="28sp"
                     android:textStyle="bold" />
@@ -241,7 +244,7 @@
                 android:paddingTop="8dp"
                 android:paddingRight="32dp"
                 android:paddingBottom="8dp"
-                android:text="Line Up"
+                android:text="@string/line_up"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -264,7 +267,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -276,7 +280,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="4dp"
-                            android:text="Goalkeeper"
+                            android:text="@string/goalkeeper"
                             android:textColor="@color/colorYellow"
                             android:textStyle="bold" />
 
@@ -285,13 +289,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingStart="4dp"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            tools:ignore="RtlSymmetry" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="4dp"
-                            android:text="Defense"
+                            android:text="@string/defense"
                             android:textColor="@color/colorYellow"
                             android:textStyle="bold" />
 
@@ -300,13 +305,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingStart="4dp"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            tools:ignore="RtlSymmetry" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="4dp"
-                            android:text="Midfield"
+                            android:text="@string/midfield"
                             android:textColor="@color/colorYellow"
                             android:textStyle="bold" />
 
@@ -315,13 +321,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingStart="4dp"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            tools:ignore="RtlSymmetry" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="4dp"
-                            android:text="Forward"
+                            android:text="@string/forward"
                             android:textColor="@color/colorYellow"
                             android:textStyle="bold" />
 
@@ -330,13 +337,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingStart="4dp"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            tools:ignore="RtlSymmetry" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="4dp"
-                            android:text="Substitutes"
+                            android:text="@string/substitutes"
                             android:textColor="@color/colorYellow"
                             android:textStyle="bold" />
 
@@ -346,7 +354,8 @@
                             android:layout_height="wrap_content"
                             android:paddingStart="4dp"
                             android:paddingBottom="4dp"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            tools:ignore="RtlSymmetry" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -359,7 +368,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="6dp"
-                            android:text="Goalkeeper"
+                            android:text="@string/goalkeeper"
                             android:textAlignment="viewEnd"
                             android:textColor="@color/colorYellow"
                             android:textStyle="bold" />
@@ -370,13 +379,14 @@
                             android:layout_height="wrap_content"
                             android:paddingEnd="6dp"
                             android:textAlignment="viewEnd"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            tools:ignore="RtlSymmetry" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="6dp"
-                            android:text="Defense"
+                            android:text="@string/defense"
                             android:textAlignment="viewEnd"
                             android:textColor="@color/colorYellow"
                             android:textStyle="bold" />
@@ -387,13 +397,14 @@
                             android:layout_height="wrap_content"
                             android:paddingEnd="6dp"
                             android:textAlignment="viewEnd"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            tools:ignore="RtlSymmetry" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="4dp"
-                            android:text="Midfield"
+                            android:text="@string/midfield"
                             android:textAlignment="viewEnd"
                             android:textColor="@color/colorYellow"
                             android:textStyle="bold" />
@@ -404,13 +415,14 @@
                             android:layout_height="wrap_content"
                             android:paddingEnd="6dp"
                             android:textAlignment="viewEnd"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            tools:ignore="RtlSymmetry" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="6dp"
-                            android:text="Forward"
+                            android:text="@string/forward"
                             android:textAlignment="viewEnd"
                             android:textColor="@color/colorYellow"
                             android:textStyle="bold" />
@@ -421,13 +433,14 @@
                             android:layout_height="wrap_content"
                             android:paddingEnd="6dp"
                             android:textAlignment="viewEnd"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            tools:ignore="RtlSymmetry" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="6dp"
-                            android:text="Substitutes"
+                            android:text="@string/substitutes"
                             android:textAlignment="viewEnd"
                             android:textColor="@color/colorYellow"
                             android:textStyle="bold" />
@@ -439,7 +452,8 @@
                             android:paddingEnd="6dp"
                             android:paddingBottom="4dp"
                             android:textAlignment="viewEnd"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            tools:ignore="RtlSymmetry" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -462,7 +476,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/image_placeholder" />
+                    android:src="@drawable/image_placeholder"
+                    android:contentDescription="@string/todo" />
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -475,7 +490,7 @@
                 android:paddingTop="8dp"
                 android:paddingRight="32dp"
                 android:paddingBottom="8dp"
-                android:text="Yellow Card"
+                android:text="@string/yellow_card"
                 android:textColor="@color/colorYellow"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/cardView2"
@@ -498,7 +513,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_orange_light"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -541,7 +557,7 @@
                 android:paddingTop="8dp"
                 android:paddingRight="32dp"
                 android:paddingBottom="8dp"
-                android:text="Red Card"
+                android:text="@string/red_card"
                 android:textColor="@android:color/holo_red_dark"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/cardView3"
@@ -565,7 +581,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_red_light"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="0dp"

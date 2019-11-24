@@ -8,28 +8,27 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.amary.kade_footballeague.R
 import com.amary.kade_footballeague.rest.ID_EVENT
-import com.amary.kade_footballeague.rest.response.model.Events
+import com.amary.kade_footballeague.rest.response.model.SchedulesMatch
 import com.amary.kade_footballeague.ui.detail_jadwal.DetailJadwalActivity
+import com.amary.kade_footballeague.utils.DateConvert
+import com.amary.kade_footballeague.utils.GlideApp
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.item_jadwal.view.*
 
-class SearchAdapter (private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class SearchAdapter(private val context: Context) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var event : MutableList<Events> = ArrayList()
+    private var event: MutableList<SchedulesMatch> = ArrayList()
 
-    fun setEvent(events: List<Events>){
+    fun setEvent(events: List<SchedulesMatch>) {
         this.event.clear()
+        this.event = ArrayList()
         this.event.addAll(events)
         notifyDataSetChanged()
     }
 
-    private fun getItem(position: Int) : Events {
+    private fun getItem(position: Int): SchedulesMatch {
         return event[position]
-    }
-
-    fun setFilter(filter: List<Events>) {
-        this.event = ArrayList()
-        this.event.addAll(filter)
-        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -46,17 +45,20 @@ class SearchAdapter (private val context: Context) : RecyclerView.Adapter<Recycl
     }
 
 
-    class SearchViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        fun bind(item: Events, context: Context) {
+    class SearchViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        fun bind(item: SchedulesMatch, context: Context) {
+            val dateConvert = DateConvert()
+
             itemView.tvEventLeague.text = item.strEvent
-            itemView.tvDateEvent.text = item.dateEvent
+            itemView.tvDateEvent.text = dateConvert.convertDate(item.dateEvent)
+            itemView.tvTimeEvent.text = dateConvert.convertTime(item.strTime)
             itemView.tvHomeNameTeam.text = item.strHomeTeam
             itemView.tvAwayNameTeam.text = item.strAwayTeam
             if (item.intHomeScore == null && item.intAwayScore == null) {
                 itemView.tvScoreHome.text = "-"
                 itemView.tvScoreAway.text = "-"
                 itemView.txtStatus.visibility = View.GONE
-            }else{
+            } else {
                 itemView.tvScoreHome.text = item.intHomeScore
                 itemView.tvScoreAway.text = item.intAwayScore
                 itemView.txtStatus.visibility = View.VISIBLE
@@ -67,6 +69,17 @@ class SearchAdapter (private val context: Context) : RecyclerView.Adapter<Recycl
                 intent.putExtra(ID_EVENT, item.idEvent)
                 context.startActivity(intent)
             }
+
+            GlideApp.with(itemView.context)
+                .load(item.imgHomeBadge)
+                .apply(RequestOptions.placeholderOf(R.drawable.ic_trophy_home).error(R.drawable.ic_trophy_home))
+                .into(itemView.imgHomeListEvent)
+
+            GlideApp.with(itemView.context)
+                .load(item.imgAwayBadge)
+                .apply(RequestOptions.placeholderOf(R.drawable.ic_trophy_away).error(R.drawable.ic_trophy_away))
+                .into(itemView.imgAwayListEvent)
+
 
         }
 

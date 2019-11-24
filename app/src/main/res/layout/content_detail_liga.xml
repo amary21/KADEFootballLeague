@@ -204,7 +204,7 @@
             android:layout_marginBottom="16dp"
             android:visibility="gone"
             android:background="@drawable/shape_btn"
-            android:text="check schedule"
+            android:text="@string/check_schedule"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -15,4 +15,17 @@
     <string name="score_awal">0</string>
     <string name="home_team">Home Team</string>
     <string name="away_team">Away Team</string>
+    <string name="time_event">time event</string>
+    <string name="next_match">Next Match</string>
+    <string name="previous_match">Previous Match</string>
+    <string name="_0">0</string>
+    <string name="line_up">Line Up</string>
+    <string name="goalkeeper">Goalkeeper</string>
+    <string name="defense">Defense</string>
+    <string name="midfield">Midfield</string>
+    <string name="forward">Forward</string>
+    <string name="substitutes">Substitutes</string>
+    <string name="yellow_card">Yellow Card</string>
+    <string name="red_card">Red Card</string>
+    <string name="check_schedule">check schedule</string>
 </resources>

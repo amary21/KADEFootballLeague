@@ -1,22 +1,22 @@
 package com.amary.kade_footballeague.ui.jadwal_list.previous
 
 import android.app.Activity
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.amary.kade_footballeague.R
 import com.amary.kade_footballeague.rest.ApiClient
 import com.amary.kade_footballeague.rest.ApiRepository
 import com.amary.kade_footballeague.rest.ID_LEAGUE
+import com.amary.kade_footballeague.rest.response.model.SchedulesMatch
 import kotlinx.android.synthetic.main.fragment_previous.*
 
 @Suppress("UNCHECKED_CAST")
@@ -26,6 +26,7 @@ class PreviousFragment : Fragment() {
     private lateinit var apiRepository: ApiRepository
     private lateinit var viewModel: PreviousViewModel
     private var prevAdapter : PreviousAdapter? = null
+    private val listPrevMatch = ArrayList<SchedulesMatch>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,10 +52,44 @@ class PreviousFragment : Fragment() {
         if (idLeague != null) {
             viewModel.getPrevMatch(idLeague).observe(this, Observer {
                 if (it.events != null){
-                    prevAdapter?.setEvent(it.events)
-                    rvPrevious.visibility = View.VISIBLE
-                    smPrevMatch.stopShimmer()
-                    smPrevMatch.visibility = View.GONE
+                    for (item in it.events) {
+                        viewModel.getHomeTeam(item.idHomeTeam).observe(this, Observer { iconHome ->
+                            viewModel.getAwayTeam(item.idAwayTeam)
+                                .observe(this, Observer { iconAway ->
+                                    listPrevMatch.add(
+                                        SchedulesMatch(
+                                            item.idEvent,
+                                            item.strEvent!!,
+                                            item.strHomeTeam,
+                                            item.strAwayTeam,
+                                            item.intHomeScore,
+                                            item.intAwayScore,
+                                            item.dateEvent,
+                                            item.strTime,
+                                            item.idHomeTeam,
+                                            item.idAwayTeam,
+                                            iconHome.teams[0].strTeamBadge,
+                                            iconAway.teams[0].strTeamBadge
+                                        )
+                                    )
+
+                                    prevAdapter?.setEvent(listPrevMatch)
+                                    rvPrevious.visibility = View.VISIBLE
+                                    smPrevMatch.stopShimmer()
+                                    smPrevMatch.visibility = View.GONE
+                                })
+                        })
+                    }
+                }
+            })
+
+            viewModel.statusNetwork().observe(this, Observer {
+                if (!it!!) {
+                    Toast.makeText(
+                        activity,
+                        "Connection error or data not found",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             })
         }

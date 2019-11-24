@@ -12,7 +12,7 @@ const val BASE_URL = BuildConfig.BASE_URL
 const val ID_LEAGUE = "com.amary.kade_footballeague.ID_LEAGUE"
 const val ID_LEAGUE_SAVE = "com.amary.kade_footballeague.ID_LEAGUE_SAVE"
 const val ID_EVENT = "com.amary.kade_footballeague.ID_EVENT"
-const val NAME_LEAGUE ="com.amary.kade_footballeague.NAME_LEAGUE"
+const val NAME_LEAGUE = "com.amary.kade_footballeague.NAME_LEAGUE"
 
 const val FIRTS_PAGE = 1
 const val POST_PER_PAGE = 8

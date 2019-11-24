@@ -17,5 +17,5 @@ data class LeagueDet (
     @SerializedName("strFanart2") val strFanart2 : String?,
     @SerializedName("strFanart3") val strFanart3 : String?,
     @SerializedName("strFanart4") val strFanart4 : String?,
-    @SerializedName("strBadge") val strBadge : String
+    @SerializedName("strBadge") val strBadge: String?
 )

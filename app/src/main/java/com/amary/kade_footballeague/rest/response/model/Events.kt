@@ -4,7 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class Events (
     @SerializedName("idEvent") val idEvent : String,
-    @SerializedName("strEvent") val strEvent : String,
+    @SerializedName("strEvent") val strEvent : String?,
+    @SerializedName("strSport") val strSport : String,
     @SerializedName("strHomeTeam") val strHomeTeam : String,
     @SerializedName("strAwayTeam") val strAwayTeam : String,
     @SerializedName("intHomeScore") val intHomeScore : String? = null,
@@ -36,5 +37,5 @@ data class Events (
     @SerializedName("idHomeTeam") val idHomeTeam : String,
     @SerializedName("idAwayTeam") val idAwayTeam : String,
     @SerializedName("strThumb") val strThumb : String,
-    @SerializedName("strVideo") val strVideo : String
+    @SerializedName("strVideo") val strVideo: String
 )

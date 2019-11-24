@@ -5,13 +5,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import com.google.android.material.snackbar.Snackbar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.viewpager.widget.ViewPager
 import com.amary.kade_footballeague.R
 import com.amary.kade_footballeague.rest.ApiClient
 import com.amary.kade_footballeague.rest.ApiRepository
@@ -20,14 +19,12 @@ import com.amary.kade_footballeague.rest.NAME_LEAGUE
 import com.amary.kade_footballeague.rest.response.model.FanArt
 import com.amary.kade_footballeague.rest.response.model.LeagueDet
 import com.amary.kade_footballeague.ui.jadwal_list.JadwalActivity
-import com.amary.kade_footballeague.ui.main.MainAdapter
-import com.amary.kade_footballeague.ui.main.MainViewModel
 import com.amary.kade_footballeague.utils.GlideApp
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_detail_liga.*
 import kotlinx.android.synthetic.main.content_detail_liga.*
-import kotlinx.android.synthetic.main.item_fanart.view.*
 
+@Suppress("UNCHECKED_CAST")
 class DetailLigaActivity : AppCompatActivity() {
 
     private val fanArt: ArrayList<FanArt>? = ArrayList()
@@ -62,6 +59,12 @@ class DetailLigaActivity : AppCompatActivity() {
             }else{
                 smDetaiLiga.visibility = View.VISIBLE
                 smDetaiLiga.startShimmer()
+            }
+        })
+
+        viewModel.statusNetwork().observe(this, Observer {
+            if (!it!!){
+                Toast.makeText(this, "Connection error or data not found", Toast.LENGTH_SHORT).show()
             }
         })
     }

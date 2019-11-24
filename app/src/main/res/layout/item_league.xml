@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,21 +9,34 @@
     android:background="@color/colorPrimary"
     app:cardCornerRadius="2dp">
 
-        <TextView
-            android:id="@+id/tvLeague"
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:background="@color/colorPrimary"
-            android:text="@string/nama_liga"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:background="@color/colorPrimary">
+
+                <TextView
+                    android:id="@+id/tvLeague"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:gravity="center_vertical"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    android:layout_toStartOf="@id/imgCoverLeague"
+                    android:text="@string/nama_liga"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgCoverLeague"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="8dp"/>
+        </RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>

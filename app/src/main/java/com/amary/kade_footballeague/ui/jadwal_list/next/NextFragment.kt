@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
@@ -15,6 +16,7 @@ import com.amary.kade_footballeague.R
 import com.amary.kade_footballeague.rest.ApiClient
 import com.amary.kade_footballeague.rest.ApiRepository
 import com.amary.kade_footballeague.rest.ID_LEAGUE
+import com.amary.kade_footballeague.rest.response.model.SchedulesMatch
 import kotlinx.android.synthetic.main.fragment_next.*
 
 @Suppress("UNCHECKED_CAST")
@@ -24,6 +26,7 @@ class NextFragment : Fragment() {
     private lateinit var apiRepository: ApiRepository
     private lateinit var viewModel: NextViewModel
     private var nextAdapter : NextAdapter? = null
+    private val listNextMatch = ArrayList<SchedulesMatch>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,11 +51,48 @@ class NextFragment : Fragment() {
 
         if (idLeague != null) {
             viewModel.getNextMatch(idLeague).observe(this, Observer {
-                if (it != null){
-                    nextAdapter?.setEvent(it.events)
-                    rvNext.visibility = View.VISIBLE
-                    smNextMatch.stopShimmer()
-                    smNextMatch.visibility = View.GONE
+                if (it != null) {
+                    if (it.events != null) {
+                        for (item in it.events) {
+                            viewModel.getHomeTeam(item.idHomeTeam)
+                                .observe(this, Observer { iconHome ->
+                                    viewModel.getAwayTeam(item.idAwayTeam)
+                                        .observe(this, Observer { iconAway ->
+                                            listNextMatch.add(
+                                                SchedulesMatch(
+                                                    item.idEvent,
+                                                    item.strEvent!!,
+                                                    item.strHomeTeam,
+                                                    item.strAwayTeam,
+                                                    item.intHomeScore,
+                                                    item.intAwayScore,
+                                                    item.dateEvent,
+                                                    item.strTime,
+                                                    item.idHomeTeam,
+                                                    item.idAwayTeam,
+                                                    iconHome.teams[0].strTeamBadge,
+                                                    iconAway.teams[0].strTeamBadge
+                                                )
+                                            )
+
+                                            nextAdapter?.setEvent(listNextMatch)
+                                            rvNext.visibility = View.VISIBLE
+                                            smNextMatch.stopShimmer()
+                                            smNextMatch.visibility = View.GONE
+                                        })
+                                })
+                        }
+                    }
+                }
+            })
+
+            viewModel.statusNetwork().observe(this, Observer {
+                if (!it!!) {
+                    Toast.makeText(
+                        activity,
+                        "Connection error or data not found",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             })
         }

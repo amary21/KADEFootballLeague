@@ -4,10 +4,9 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
 import android.view.View
 import android.webkit.WebChromeClient
-import com.google.android.material.snackbar.Snackbar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
@@ -17,13 +16,14 @@ import com.amary.kade_footballeague.R
 import com.amary.kade_footballeague.rest.ApiClient
 import com.amary.kade_footballeague.rest.ApiRepository
 import com.amary.kade_footballeague.rest.ID_EVENT
-import com.amary.kade_footballeague.rest.ID_LEAGUE
 import com.amary.kade_footballeague.rest.response.model.Events
+import com.amary.kade_footballeague.utils.DateConvert
 import com.amary.kade_footballeague.utils.GlideApp
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_detail_jadwal.*
 import kotlinx.android.synthetic.main.content_detail_jadwal.*
 
+@Suppress("UNCHECKED_CAST")
 class DetailJadwalActivity : AppCompatActivity() {
 
     private val apiService = ApiClient.getClient()
@@ -45,10 +45,10 @@ class DetailJadwalActivity : AppCompatActivity() {
         viewModel.getLeagueDetail(id).observe(this, Observer {
             if (it != null){
                 isNotEmptyData()
-                for (i in it.events){
+                for (i in it.events!!){
                     initLogo(i.idHomeTeam, i.idAwayTeam)
                     initData(i)
-                    if (i.strHomeLineupGoalkeeper.isNotEmpty()){
+                    if (i.strHomeLineupGoalkeeper.isNotEmpty()) {
                         initDetail(i)
                     }
                 }
@@ -56,10 +56,16 @@ class DetailJadwalActivity : AppCompatActivity() {
 
         })
 
+        viewModel.statusNetwork().observe(this, Observer {
+            if (!it!!){
+                Toast.makeText(this, "Connection error or data not found", Toast.LENGTH_SHORT).show()
+            }
+        })
+
 
     }
 
-    private fun isNotEmptyData(){
+    private fun isNotEmptyData() {
         smDetailMatch.stopShimmer()
         smContentDetailMatch.stopShimmer()
         smDetailMatch.visibility = View.GONE
@@ -99,21 +105,10 @@ class DetailJadwalActivity : AppCompatActivity() {
         val homeRedCard = item.strHomeRedCards.split(";").map { it.trim() }
         val awayRedCard = item.strAwayRedCards.split(";").map { it.trim() }
 
-        homeYellowCard.forEach {
-            Log.e("HOME CARD", it)
-        }
-
-        awayYellowCard.forEach {
-            Log.e("AWAY CARD", it)
-        }
-
         tvYellowHome.text = (homeYellowCard.size - 1).toString()
         tvYellowAway.text = (awayYellowCard.size - 1).toString()
         tvRedHome.text = (homeRedCard.size - 1).toString()
         tvRedAway.text = (awayRedCard.size - 1).toString()
-
-        tvShotHome.text = item.intHomeScore ?: "0"
-        tvShotAway.text = item.intAwayScore ?: "0"
 
         val oldVideo = "watch?v="
         val newVideo = "embed/"
@@ -147,23 +142,25 @@ class DetailJadwalActivity : AppCompatActivity() {
     }
 
     private fun initData(item: Events) {
+        val dateConver = DateConvert()
         tvEventLeagueDet.text = item.strEvent
-        tvDateEventDet.text = item.dateEvent
+        tvDateEventDet.text = dateConver.convertDate(item.dateEvent)
+        tvTimeEventDet.text = dateConver.convertTime(item.strTime)
         tvHomeNameTeamDet.text = item.strHomeTeam
         tvAwayNameTeamDet.text = item.strAwayTeam
         if (item.intAwayScore != null && item.intHomeScore != null){
             tvScoreHomeDet.text = item.intHomeScore
             tvScoreAwayDet.text = item.intAwayScore
-        }else{
+            tvShotHome.text = item.intHomeScore
+            tvShotAway.text = item.intAwayScore
+            txtStatus.visibility = View.VISIBLE
+        } else {
             tvScoreHomeDet.text = "-"
             tvScoreAwayDet.text = "-"
+            tvShotHome.text = "0"
+            tvShotAway.text = "0"
+            txtStatus.visibility = View.GONE
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu_app_bar, menu)
-        return super.onCreateOptionsMenu(menu)
     }
 
     private fun getViewModel(apiRepository: ApiRepository): DetailJadwalViewModel {

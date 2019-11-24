@@ -9,14 +9,13 @@ import com.amary.kade_footballeague.R
 import com.amary.kade_footballeague.rest.response.model.FanArt
 import com.amary.kade_footballeague.utils.GlideApp
 import com.bumptech.glide.request.RequestOptions
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_fanart.view.*
 
 class DetailLigaAdapter(private val context: Context) : PagerAdapter() {
 
     private var fanart: MutableList<FanArt> = ArrayList()
 
-    fun setLeagues(fanart: List<FanArt>){
+    fun setLeagues(fanart: List<FanArt>) {
         this.fanart.addAll(fanart)
         notifyDataSetChanged()
     }

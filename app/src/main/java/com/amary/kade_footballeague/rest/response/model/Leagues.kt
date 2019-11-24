@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 data class Leagues (
     @SerializedName("idLeague") val idLeague : String,
     @SerializedName("strLeague") val strLeague : String,
-    @SerializedName("strSport") val strSport : String
+    @SerializedName("strSport") val strSport : String?
 )

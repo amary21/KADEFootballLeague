@@ -10,6 +10,12 @@ import io.reactivex.schedulers.Schedulers
 
 class ApiRepository(private val apiInterface: ApiInterface) {
 
+    private val network = MutableLiveData<Boolean>()
+
+    fun networking(): LiveData<Boolean?> {
+        return network
+    }
+
     @SuppressLint("CheckResult")
     fun getLeague() : LiveData<LeagueResponse>{
         val dataLeague = MutableLiveData<LeagueResponse>()
@@ -19,9 +25,11 @@ class ApiRepository(private val apiInterface: ApiInterface) {
             .subscribe({
                 if (it != null){
                     dataLeague.value = it
+                    network.value = true
                 }
             },{
                 Log.e("ERROR", it.message.toString())
+                network.value = false
             })
 
         return dataLeague
@@ -36,9 +44,13 @@ class ApiRepository(private val apiInterface: ApiInterface) {
             .subscribe({
                 if (it != null){
                     dataLeague.value = it
+                    network.value = true
                 }
             },{
-                Log.e("ERROR DETAIL", it.message.toString())
+                if (it.message != null){
+                    Log.e("ERROR DETAIL", it.message.toString())
+                    network.value = false
+                }
             })
         return dataLeague
     }
@@ -52,9 +64,11 @@ class ApiRepository(private val apiInterface: ApiInterface) {
             .subscribe({
                 if (it != null){
                     dataEvent.value = it
+                    network.value = true
                 }
             },{
                 Log.e("NEXT ERROR", it.message.toString())
+                network.value = false
             })
         return dataEvent
     }
@@ -68,9 +82,11 @@ class ApiRepository(private val apiInterface: ApiInterface) {
             .subscribe({
                 if (it != null){
                     dataEvent.value = it
+                    network.value = true
                 }
             },{
                 Log.e("NEXT ERROR", it.message.toString())
+                network.value = false
             })
         return dataEvent
     }
@@ -84,8 +100,10 @@ class ApiRepository(private val apiInterface: ApiInterface) {
             .subscribe({
                 if (it != null){
                     dataEvent.value = it
+                    network.value = true
                 }
             },{
+                network.value = false
                 Log.e("NEXT ERROR", it.message.toString())
             })
         return dataEvent
@@ -100,25 +118,29 @@ class ApiRepository(private val apiInterface: ApiInterface) {
             .subscribe({
                 if (it != null){
                     dataTeams.value = it
+                    network.value = true
                 }
             },{
                 Log.e("NEXT ERROR", it.message.toString())
+                network.value = false
             })
         return dataTeams
     }
 
     @SuppressLint("CheckResult")
-    fun getSearchEvent(search : String) : LiveData<SearchResponse>{
+    fun getSearchEvent(search: String): LiveData<SearchResponse> {
         val dataSearch = MutableLiveData<SearchResponse>()
         apiInterface.getSearchEvent(search)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                if (it != null){
+                if (it != null) {
                     dataSearch.value = it
+                    network.value = true
                 }
-            },{
+            }, {
                 Log.e("Search ERROR", it.message.toString())
+                network.value = false
             })
 
         return dataSearch

@@ -78,17 +78,28 @@
                             app:layout_constraintTop_toBottomOf="@+id/tvEventLeagueDet" />
 
                         <TextView
+                            android:id="@+id/tvTimeEventDet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/time_event"
+                            android:textColor="@android:color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvDateEventDet" />
+
+                        <TextView
                             android:id="@+id/txtCenter"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:gravity="center_vertical"
                             android:text="@string/score_help"
                             android:textColor="@android:color/white"
-                            android:gravity="center_vertical"
                             android:textSize="65sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tvDateEventDet" />
+                            app:layout_constraintTop_toBottomOf="@+id/tvTimeEventDet" />
 
                         <TextView
                             android:id="@+id/txtStatus"

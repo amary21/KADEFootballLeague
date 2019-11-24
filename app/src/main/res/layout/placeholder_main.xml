@@ -10,7 +10,8 @@
         android:layout_margin="8dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
-        android:src="@color/placeholder_bg"/>
+        android:src="@color/placeholder_bg"
+        android:contentDescription="@string/todo" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -31,6 +31,7 @@ interface ApiInterface {
     ) : Observable<TeamsResponse>
 
     @GET("searchevents.php")
-    fun getSearchEvent(@Query("e") e : String
-    ) : Observable<SearchResponse>
+    fun getSearchEvent(
+        @Query("e") e: String
+    ): Observable<SearchResponse>
 }
