@@ -1,5 +1,6 @@
 package com.amary.kade_footballeague.ui.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.amary.kade_footballeague.R
 import com.amary.kade_footballeague.rest.ApiClient
 import com.amary.kade_footballeague.rest.ApiRepository
+import com.amary.kade_footballeague.ui.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -46,6 +48,11 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        fabSearchEvent.setOnClickListener {
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getViewModel(apiRepository: ApiRepository): MainViewModel {

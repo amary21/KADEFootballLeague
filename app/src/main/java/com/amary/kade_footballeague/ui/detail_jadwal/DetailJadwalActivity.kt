@@ -33,7 +33,7 @@ class DetailJadwalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_jadwal)
-//        setSupportActionBar(toolbar)
+
         wbHighLight.setBackgroundColor(Color.BLACK)
 
         apiRepository = ApiRepository(apiService)
@@ -44,17 +44,28 @@ class DetailJadwalActivity : AppCompatActivity() {
 
         viewModel.getLeagueDetail(id).observe(this, Observer {
             if (it != null){
-                smDetailMatch.visibility = View.GONE
-                nsDetailMatch.visibility = View.VISIBLE
+                isNotEmptyData()
                 for (i in it.events){
-                    initData(i)
-                    initDetail(i)
                     initLogo(i.idHomeTeam, i.idAwayTeam)
+                    initData(i)
+                    if (i.strHomeLineupGoalkeeper.isNotEmpty()){
+                        initDetail(i)
+                    }
                 }
             }
 
         })
 
+
+    }
+
+    private fun isNotEmptyData(){
+        smDetailMatch.stopShimmer()
+        smContentDetailMatch.stopShimmer()
+        smDetailMatch.visibility = View.GONE
+        smContentDetailMatch.visibility = View.GONE
+        nsDetailMatch.visibility = View.VISIBLE
+        ly_contentDetail.visibility = View.VISIBLE
 
     }
 
@@ -112,6 +123,7 @@ class DetailJadwalActivity : AppCompatActivity() {
 
         val oldValue = ";"
         val newValue = "\n"
+
         tvHomeGK.text = item.strHomeLineupGoalkeeper.replace(oldValue, newValue)
         tvAwayGK.text = item.strAwayLineupGoalkeeper.replace(oldValue, newValue)
         tvHomeDF.text = item.strHomeLineupDefense.replace(oldValue, newValue)
@@ -142,6 +154,9 @@ class DetailJadwalActivity : AppCompatActivity() {
         if (item.intAwayScore != null && item.intHomeScore != null){
             tvScoreHomeDet.text = item.intHomeScore
             tvScoreAwayDet.text = item.intAwayScore
+        }else{
+            tvScoreHomeDet.text = "-"
+            tvScoreAwayDet.text = "-"
         }
     }
 

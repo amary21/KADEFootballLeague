@@ -1,9 +1,6 @@
 package com.amary.kade_footballeague.rest
 
-import com.amary.kade_footballeague.rest.response.EventsResponse
-import com.amary.kade_footballeague.rest.response.LeagueDetResponse
-import com.amary.kade_footballeague.rest.response.LeagueResponse
-import com.amary.kade_footballeague.rest.response.TeamsResponse
+import com.amary.kade_footballeague.rest.response.*
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -32,4 +29,8 @@ interface ApiInterface {
     @GET("lookupteam.php")
     fun getTeams(@Query("id")id :String
     ) : Observable<TeamsResponse>
+
+    @GET("searchevents.php")
+    fun getSearchEvent(@Query("e") e : String
+    ) : Observable<SearchResponse>
 }

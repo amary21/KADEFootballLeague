@@ -1,6 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-</LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:orientation="vertical"
+            android:background="@drawable/shape_placeholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:orientation="vertical"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/shape_placeholder"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:orientation="vertical"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/shape_placeholder"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"/>
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/shape_placeholder"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/shape_placeholder"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout"
+            android:orientation="horizontal"/>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/shape_placeholder"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout2"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/shape_placeholder"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout2"/>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="@drawable/shape_placeholder"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout5"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout8"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/shape_placeholder"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout5"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvWebView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/placeholder_bg"
+            android:orientation="vertical" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

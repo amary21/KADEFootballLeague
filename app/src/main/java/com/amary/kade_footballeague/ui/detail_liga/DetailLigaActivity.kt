@@ -16,6 +16,7 @@ import com.amary.kade_footballeague.R
 import com.amary.kade_footballeague.rest.ApiClient
 import com.amary.kade_footballeague.rest.ApiRepository
 import com.amary.kade_footballeague.rest.ID_LEAGUE
+import com.amary.kade_footballeague.rest.NAME_LEAGUE
 import com.amary.kade_footballeague.rest.response.model.FanArt
 import com.amary.kade_footballeague.rest.response.model.LeagueDet
 import com.amary.kade_footballeague.ui.jadwal_list.JadwalActivity
@@ -40,14 +41,12 @@ class DetailLigaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_liga)
-//        setSupportActionBar(toolbar)
+
+        val id = intent.getStringExtra(ID_LEAGUE)
 
         apiRepository = ApiRepository(apiService)
         fanArtAdater = DetailLigaAdapter(this)
         viewModel = getViewModel(apiRepository)
-
-        val id = intent.getStringExtra(ID_LEAGUE)
-        Log.e("ID", id)
 
         fanArtAdater = DetailLigaAdapter(this)
         vpFanArt.adapter = fanArtAdater
@@ -109,6 +108,7 @@ class DetailLigaActivity : AppCompatActivity() {
         btnCheckSchedule.setOnClickListener {
             val intent = Intent(this, JadwalActivity::class.java)
             intent.putExtra(ID_LEAGUE, item.idLeague)
+            intent.putExtra(NAME_LEAGUE, item.strLeague)
             startActivity(intent)
         }
     }

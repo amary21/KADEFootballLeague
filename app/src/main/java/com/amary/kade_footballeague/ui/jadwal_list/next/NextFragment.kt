@@ -1,17 +1,16 @@
 package com.amary.kade_footballeague.ui.jadwal_list.next
 
 import android.app.Activity
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.amary.kade_footballeague.R
 import com.amary.kade_footballeague.rest.ApiClient
 import com.amary.kade_footballeague.rest.ApiRepository
@@ -20,7 +19,6 @@ import kotlinx.android.synthetic.main.fragment_next.*
 
 @Suppress("UNCHECKED_CAST")
 class NextFragment : Fragment() {
-
 
     private val apiService = ApiClient.getClient()
     private lateinit var apiRepository: ApiRepository
@@ -50,12 +48,11 @@ class NextFragment : Fragment() {
 
         if (idLeague != null) {
             viewModel.getNextMatch(idLeague).observe(this, Observer {
-                if(it.events != null){
+                if (it != null){
                     nextAdapter?.setEvent(it.events)
                     rvNext.visibility = View.VISIBLE
                     smNextMatch.stopShimmer()
                     smNextMatch.visibility = View.GONE
-
                 }
             })
         }

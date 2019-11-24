@@ -30,12 +30,11 @@ class JadwalActivity : AppCompatActivity() {
         setupViewPager(jadwalContainer, idJadwal)
     }
 
-    private fun setupViewPager(viewPager: ViewPager, id : String?){
+    private fun setupViewPager(viewPager: ViewPager, id: String?){
         val adapter = JadwalTabAdapter(supportFragmentManager)
 
         val bundle = Bundle()
         bundle.putString(ID_LEAGUE, id)
-
 
         val fragNext = NextFragment()
         val fragPrev = PreviousFragment()

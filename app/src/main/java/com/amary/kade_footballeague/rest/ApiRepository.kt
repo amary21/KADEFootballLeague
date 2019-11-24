@@ -4,10 +4,7 @@ import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.amary.kade_footballeague.rest.response.EventsResponse
-import com.amary.kade_footballeague.rest.response.LeagueDetResponse
-import com.amary.kade_footballeague.rest.response.LeagueResponse
-import com.amary.kade_footballeague.rest.response.TeamsResponse
+import com.amary.kade_footballeague.rest.response.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -108,5 +105,23 @@ class ApiRepository(private val apiInterface: ApiInterface) {
                 Log.e("NEXT ERROR", it.message.toString())
             })
         return dataTeams
+    }
+
+    @SuppressLint("CheckResult")
+    fun getSearchEvent(search : String) : LiveData<SearchResponse>{
+        val dataSearch = MutableLiveData<SearchResponse>()
+        apiInterface.getSearchEvent(search)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                if (it != null){
+                    dataSearch.value = it
+                }
+            },{
+                Log.e("Search ERROR", it.message.toString())
+            })
+
+        return dataSearch
+
     }
 }

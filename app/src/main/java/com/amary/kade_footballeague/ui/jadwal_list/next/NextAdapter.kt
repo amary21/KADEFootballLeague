@@ -40,18 +40,23 @@ class NextAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.View
 
     class NextViewHolder(view: View) : RecyclerView.ViewHolder(view){
         fun bind(item: Events, context: Context) {
+
             itemView.tvEventLeague.text = item.strEvent
             itemView.tvDateEvent.text = item.dateEvent
             itemView.tvHomeNameTeam.text = item.strHomeTeam
             itemView.tvAwayNameTeam.text = item.strAwayTeam
+            if (item.intHomeScore == null && item.intAwayScore == null) {
+                itemView.tvScoreHome.text = "-"
+                itemView.tvScoreAway.text = "-"
+            }
 
             itemView.setOnClickListener {
                 val intent = Intent(context, DetailJadwalActivity::class.java)
                 intent.putExtra(ID_EVENT, item.idEvent)
                 context.startActivity(intent)
             }
+
             itemView.txtStatus.visibility = View.GONE
         }
-
     }
 }

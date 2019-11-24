@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.main.MainActivity">
 
@@ -17,18 +18,19 @@
         android:id="@+id/imgCover"
         android:layout_width="match_parent"
         android:layout_margin="8dp"
-        android:layout_height="100dp"
         android:visibility="gone"
+        android:layout_height="100dp"
         android:scaleType="centerCrop"
         android:src="@drawable/league_cover"/>
     <TextView
         android:id="@+id/txtCover"
+        android:layout_below="@+id/imgCover"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/daftar_liga"
-        android:visibility="gone"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:visibility="gone"
         android:padding="4dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -37,9 +39,19 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLeague"
         android:layout_margin="8dp"
-        android:visibility="gone"
+        android:layout_below="@+id/txtCover"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_height="match_parent"
         tools:listitem="@layout/item_league"/>
 
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSearchEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_search" />
+
+</RelativeLayout>
