@@ -2,9 +2,9 @@ package com.amary.kade_footballeague.ui.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.amary.kade_footballeague.rest.ApiRepository
-import com.amary.kade_footballeague.rest.response.SearchResponse
-import com.amary.kade_footballeague.rest.response.TeamsResponse
+import com.amary.kade_footballeague.data.rest.ApiRepository
+import com.amary.kade_footballeague.data.rest.response.SearchResponse
+import com.amary.kade_footballeague.data.rest.response.TeamsResponse
 
 class SearchViewModel(private val apiRepository: ApiRepository) : ViewModel() {
     fun getSearchEvent(search: String): LiveData<SearchResponse> {

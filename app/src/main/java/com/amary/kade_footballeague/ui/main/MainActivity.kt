@@ -12,9 +12,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amary.kade_footballeague.R
-import com.amary.kade_footballeague.rest.ApiClient
-import com.amary.kade_footballeague.rest.ApiRepository
-import com.amary.kade_footballeague.rest.response.model.ListLeagues
+import com.amary.kade_footballeague.data.rest.ApiClient
+import com.amary.kade_footballeague.data.rest.ApiRepository
+import com.amary.kade_footballeague.data.rest.response.model.ListLeagues
+import com.amary.kade_footballeague.ui.jadwal_favorite.JadwalFavActivity
 import com.amary.kade_footballeague.ui.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -73,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                             smMain.stopShimmer()
                             smMain.visibility = View.GONE
                             fabSearchEvent.visibility = View.VISIBLE
+                            fabFavoriteEvent.visibility = View.VISIBLE
                         })
                     }
                 }
@@ -91,6 +93,11 @@ class MainActivity : AppCompatActivity() {
 
         fabSearchEvent.setOnClickListener {
             val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
+
+        fabFavoriteEvent.setOnClickListener {
+            val intent = Intent(this, JadwalFavActivity::class.java)
             startActivity(intent)
         }
     }

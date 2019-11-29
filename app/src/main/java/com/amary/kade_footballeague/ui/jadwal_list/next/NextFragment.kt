@@ -13,10 +13,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amary.kade_footballeague.R
-import com.amary.kade_footballeague.rest.ApiClient
-import com.amary.kade_footballeague.rest.ApiRepository
-import com.amary.kade_footballeague.rest.ID_LEAGUE
-import com.amary.kade_footballeague.rest.response.model.SchedulesMatch
+import com.amary.kade_footballeague.data.rest.ApiClient
+import com.amary.kade_footballeague.data.rest.ApiRepository
+import com.amary.kade_footballeague.data.rest.ID_LEAGUE
+import com.amary.kade_footballeague.data.rest.response.model.SchedulesMatch
 import kotlinx.android.synthetic.main.fragment_next.*
 
 @Suppress("UNCHECKED_CAST")

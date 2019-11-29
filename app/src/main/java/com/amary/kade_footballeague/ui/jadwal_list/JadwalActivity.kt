@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.amary.kade_footballeague.R
-import com.amary.kade_footballeague.rest.ID_LEAGUE
-import com.amary.kade_footballeague.rest.ID_LEAGUE_SAVE
+import com.amary.kade_footballeague.data.rest.ID_LEAGUE
+import com.amary.kade_footballeague.data.rest.ID_LEAGUE_SAVE
 import com.amary.kade_footballeague.ui.jadwal_list.next.NextFragment
 import com.amary.kade_footballeague.ui.jadwal_list.previous.PreviousFragment
 import com.google.android.material.tabs.TabLayout
@@ -65,7 +65,6 @@ class JadwalActivity : AppCompatActivity() {
 
         })
     }
-
 
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putString(ID_LEAGUE_SAVE, idJadwal)

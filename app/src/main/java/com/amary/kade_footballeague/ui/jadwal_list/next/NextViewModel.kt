@@ -2,9 +2,9 @@ package com.amary.kade_footballeague.ui.jadwal_list.next
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.amary.kade_footballeague.rest.ApiRepository
-import com.amary.kade_footballeague.rest.response.EventsResponse
-import com.amary.kade_footballeague.rest.response.TeamsResponse
+import com.amary.kade_footballeague.data.rest.ApiRepository
+import com.amary.kade_footballeague.data.rest.response.EventsResponse
+import com.amary.kade_footballeague.data.rest.response.TeamsResponse
 
 class NextViewModel(private val apiRepository: ApiRepository) : ViewModel() {
     fun getNextMatch(id: String): LiveData<EventsResponse> {

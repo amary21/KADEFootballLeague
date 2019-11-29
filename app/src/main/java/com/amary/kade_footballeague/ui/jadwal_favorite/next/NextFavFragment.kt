@@ -17,8 +17,10 @@ class NextFavFragment : Fragment() {
 
     private lateinit var viewModel: NextFavViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_next_fav, container, false)
     }
 

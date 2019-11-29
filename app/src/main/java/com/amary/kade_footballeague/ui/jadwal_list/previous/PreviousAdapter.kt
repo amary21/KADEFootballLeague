@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.amary.kade_footballeague.R
-import com.amary.kade_footballeague.rest.ID_EVENT
-import com.amary.kade_footballeague.rest.response.model.SchedulesMatch
+import com.amary.kade_footballeague.data.rest.ID_EVENT
+import com.amary.kade_footballeague.data.rest.response.model.SchedulesMatch
 import com.amary.kade_footballeague.ui.detail_jadwal.DetailJadwalActivity
 import com.amary.kade_footballeague.utils.DateConvert
 import com.amary.kade_footballeague.utils.GlideApp

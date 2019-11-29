@@ -29,9 +29,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/daftar_liga"
+        android:visibility="gone"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:visibility="gone"
         android:padding="4dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -55,5 +55,17 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@drawable/ic_search" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabFavoriteEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fabSearchEvent"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"
+        android:tint="@android:color/white"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:src="@drawable/ic_bookmark" />
 
 </RelativeLayout>

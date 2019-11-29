@@ -1,6 +1,6 @@
-package com.amary.kade_footballeague.rest
+package com.amary.kade_footballeague.data.rest
 
-import com.amary.kade_footballeague.rest.response.*
+import com.amary.kade_footballeague.data.rest.response.*
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query

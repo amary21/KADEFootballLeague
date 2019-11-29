@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.amary.kade_footballeague.R
-import com.amary.kade_footballeague.rest.ID_LEAGUE
-import com.amary.kade_footballeague.rest.response.model.ListLeagues
+import com.amary.kade_footballeague.data.rest.ID_LEAGUE
+import com.amary.kade_footballeague.data.rest.response.model.ListLeagues
 import com.amary.kade_footballeague.ui.detail_liga.DetailLigaActivity
 import com.amary.kade_footballeague.utils.GlideApp
 import com.bumptech.glide.request.RequestOptions

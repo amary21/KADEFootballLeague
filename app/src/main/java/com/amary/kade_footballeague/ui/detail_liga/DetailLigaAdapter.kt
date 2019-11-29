@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import com.amary.kade_footballeague.R
-import com.amary.kade_footballeague.rest.response.model.FanArt
+import com.amary.kade_footballeague.data.rest.response.model.FanArt
 import com.amary.kade_footballeague.utils.GlideApp
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.item_fanart.view.*

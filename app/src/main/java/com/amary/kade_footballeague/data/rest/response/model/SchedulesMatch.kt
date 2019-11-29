@@ -1,4 +1,4 @@
-package com.amary.kade_footballeague.rest.response.model
+package com.amary.kade_footballeague.data.rest.response.model
 
 data class SchedulesMatch (
     val idEvent : String,

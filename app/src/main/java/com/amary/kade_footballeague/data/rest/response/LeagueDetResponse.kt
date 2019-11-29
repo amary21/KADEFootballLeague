@@ -1,6 +1,6 @@
-package com.amary.kade_footballeague.rest.response
+package com.amary.kade_footballeague.data.rest.response
 
-import com.amary.kade_footballeague.rest.response.model.LeagueDet
+import com.amary.kade_footballeague.data.rest.response.model.LeagueDet
 import com.google.gson.annotations.SerializedName
 
 class LeagueDetResponse (

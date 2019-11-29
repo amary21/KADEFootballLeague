@@ -1,4 +1,4 @@
-package com.amary.kade_footballeague.rest
+package com.amary.kade_footballeague.data.rest
 
 import com.amary.kade_footballeague.BuildConfig
 import okhttp3.Interceptor

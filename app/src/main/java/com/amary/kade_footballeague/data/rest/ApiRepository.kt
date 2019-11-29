@@ -1,10 +1,10 @@
-package com.amary.kade_footballeague.rest
+package com.amary.kade_footballeague.data.rest
 
 import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.amary.kade_footballeague.rest.response.*
+import com.amary.kade_footballeague.data.rest.response.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

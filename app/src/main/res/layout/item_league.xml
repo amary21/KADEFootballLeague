@@ -7,7 +7,7 @@
     android:layout_marginTop="4dp"
     android:layout_marginBottom="4dp"
     android:background="@color/colorPrimary"
-    app:cardCornerRadius="2dp">
+    app:cardCornerRadius="10dp">
 
 
         <RelativeLayout
@@ -18,7 +18,7 @@
                 <TextView
                     android:id="@+id/tvLeague"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="50dp"
                     android:gravity="center_vertical"
                     android:ellipsize="end"
                     android:maxLines="1"
@@ -32,8 +32,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgCoverLeague"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_alignParentEnd="true"
                     android:layout_margin="8dp"/>
         </RelativeLayout>
