@@ -13,10 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.jadwal_favorite.JadwalFavActivity"></activity>
-        <activity
-            android:name=".ui.jadwal_favorite.FavoriteActivity"
-            android:label="@string/app_name" />
+        <activity android:name=".ui.jadwal_favorite.JadwalFavActivity" />
         <activity
             android:name=".ui.search.SearchActivity"
             android:label="@string/app_name" />
