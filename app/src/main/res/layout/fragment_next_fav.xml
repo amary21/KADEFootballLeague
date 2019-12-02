@@ -5,9 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.jadwal_favorite.next.NextFavFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFavNext"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:listitem="@layout/item_jadwal" />
 
 </FrameLayout>

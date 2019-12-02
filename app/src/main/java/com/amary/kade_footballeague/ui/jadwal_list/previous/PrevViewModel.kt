@@ -6,7 +6,7 @@ import com.amary.kade_footballeague.data.rest.ApiRepository
 import com.amary.kade_footballeague.data.rest.response.EventsResponse
 import com.amary.kade_footballeague.data.rest.response.TeamsResponse
 
-class PreviousViewModel(private val apiRepository: ApiRepository) : ViewModel() {
+class PrevViewModel(private val apiRepository: ApiRepository) : ViewModel() {
 
     fun getPrevMatch(id: String): LiveData<EventsResponse> {
         return apiRepository.getPrevMatchEvent(id)

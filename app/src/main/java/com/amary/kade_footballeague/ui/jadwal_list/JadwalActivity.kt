@@ -7,7 +7,7 @@ import com.amary.kade_footballeague.R
 import com.amary.kade_footballeague.data.rest.ID_LEAGUE
 import com.amary.kade_footballeague.data.rest.ID_LEAGUE_SAVE
 import com.amary.kade_footballeague.ui.jadwal_list.next.NextFragment
-import com.amary.kade_footballeague.ui.jadwal_list.previous.PreviousFragment
+import com.amary.kade_footballeague.ui.jadwal_list.previous.PrevFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.TabLayoutOnPageChangeListener
 import kotlinx.android.synthetic.main.activity_jadwal.*
@@ -37,7 +37,7 @@ class JadwalActivity : AppCompatActivity() {
         bundle.putString(ID_LEAGUE, id)
 
         val fragNext = NextFragment()
-        val fragPrev = PreviousFragment()
+        val fragPrev = PrevFragment()
 
         fragNext.arguments = bundle
         fragPrev.arguments = bundle

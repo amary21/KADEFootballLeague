@@ -17,22 +17,22 @@ import com.amary.kade_footballeague.data.rest.ApiClient
 import com.amary.kade_footballeague.data.rest.ApiRepository
 import com.amary.kade_footballeague.data.rest.ID_LEAGUE
 import com.amary.kade_footballeague.data.rest.response.model.SchedulesMatch
-import kotlinx.android.synthetic.main.fragment_previous.*
+import kotlinx.android.synthetic.main.fragment_prev.*
 
 @Suppress("UNCHECKED_CAST")
-class PreviousFragment : Fragment() {
+class PrevFragment : Fragment() {
 
     private val apiService = ApiClient.getClient()
     private lateinit var apiRepository: ApiRepository
-    private lateinit var viewModel: PreviousViewModel
-    private var prevAdapter : PreviousAdapter? = null
+    private lateinit var viewModel: PrevViewModel
+    private var prevAdapter : PrevAdapter? = null
     private val listPrevMatch = ArrayList<SchedulesMatch>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_previous, container, false)
+        return inflater.inflate(R.layout.fragment_prev, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -43,7 +43,7 @@ class PreviousFragment : Fragment() {
 
         apiRepository = ApiRepository(apiService)
         viewModel = getViewModel(apiRepository)
-        prevAdapter = PreviousAdapter(context as Activity)
+        prevAdapter = PrevAdapter(context as Activity)
 
         rvPrevious.layoutManager = LinearLayoutManager(context)
         rvPrevious.setHasFixedSize(true)
@@ -95,13 +95,13 @@ class PreviousFragment : Fragment() {
         }
     }
 
-    private fun getViewModel(apiRepository: ApiRepository): PreviousViewModel {
+    private fun getViewModel(apiRepository: ApiRepository): PrevViewModel {
         return ViewModelProviders.of(this, object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                return PreviousViewModel(apiRepository) as T
+                return PrevViewModel(apiRepository) as T
             }
 
-        })[PreviousViewModel::class.java]
+        })[PrevViewModel::class.java]
     }
 
 }

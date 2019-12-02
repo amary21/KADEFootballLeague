@@ -16,7 +16,7 @@ import com.amary.kade_footballeague.utils.GlideApp
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.item_jadwal.view.*
 
-class PreviousAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class PrevAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var event: MutableList<SchedulesMatch> = ArrayList()
 
