@@ -2,9 +2,7 @@
     <string name="app_name">Kade - FootbalLague</string>
     <string name="nama_liga">Nama Liga</string>
     <string name="daftar_liga">Daftar Liga</string>
-    <string name="title_activity_detail_liga">DetailLigaActivity</string>
     <string name="description">Description</string>
-    <string name="title_activity_detail_jadwal">DetailJadwalActivity</string>
     <string name="search">search</string>
     <string name="search_event">Search Event</string>
     <string name="todo">TODO</string>

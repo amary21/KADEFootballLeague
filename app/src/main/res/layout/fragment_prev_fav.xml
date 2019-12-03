@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.jadwal_favorite.previous.PrevFavFragment">
+    tools:context=".ui.schedule_favorite.previous.PrevFavFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFavPrevious"
+        android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_jadwal" />
+        tools:listitem="@layout/item_schedule" />
 
 </FrameLayout>

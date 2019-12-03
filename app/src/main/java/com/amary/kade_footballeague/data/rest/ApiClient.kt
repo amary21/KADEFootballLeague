@@ -13,9 +13,8 @@ const val ID_LEAGUE = "com.amary.kade_footballeague.ID_LEAGUE"
 const val ID_LEAGUE_SAVE = "com.amary.kade_footballeague.ID_LEAGUE_SAVE"
 const val ID_EVENT = "com.amary.kade_footballeague.ID_EVENT"
 const val NAME_LEAGUE = "com.amary.kade_footballeague.NAME_LEAGUE"
-
-const val FIRTS_PAGE = 1
-const val POST_PER_PAGE = 8
+const val IS_NEXT = "com.amary.kade_footballeague.IS_NEXT"
+const val IS_PREV = "com.amary.kade_footballeague.IS_PREV"
 
 object ApiClient {
 

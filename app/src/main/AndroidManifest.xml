@@ -13,17 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.jadwal_favorite.JadwalFavActivity" />
+        <activity android:name=".ui.schedule_favorite.ScheduleFavActivity" />
         <activity
             android:name=".ui.search.SearchActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".ui.detail_jadwal.DetailJadwalActivity"
+            android:name=".ui.detail_schedule.DetailScheduleActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.jadwal_list.JadwalActivity" />
+        <activity android:name=".ui.schedule_list.ScheduleActivity" />
         <activity
-            android:name=".ui.detail_liga.DetailLigaActivity"
+            android:name=".ui.detail_league.DetailScheduleActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.main.MainActivity">

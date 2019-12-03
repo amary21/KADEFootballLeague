@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.jadwal_list.previous.PrevFragment">
+    tools:context=".ui.schedule_list.previous.PrevFragment">
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/smPrevMatch"
@@ -13,10 +13,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <include layout="@layout/placeholder_jadwal"/>
-            <include layout="@layout/placeholder_jadwal"/>
-            <include layout="@layout/placeholder_jadwal"/>
-            <include layout="@layout/placeholder_jadwal"/>
+            <include layout="@layout/placeholder_schedule"/>
+            <include layout="@layout/placeholder_schedule"/>
+            <include layout="@layout/placeholder_schedule"/>
+            <include layout="@layout/placeholder_schedule"/>
         </LinearLayout>
 
     </com.facebook.shimmer.ShimmerFrameLayout>
@@ -27,6 +27,6 @@
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_jadwal"/>
+        tools:listitem="@layout/item_schedule"/>
 
 </FrameLayout>

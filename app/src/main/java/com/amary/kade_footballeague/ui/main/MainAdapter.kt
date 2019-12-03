@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amary.kade_footballeague.R
 import com.amary.kade_footballeague.data.rest.ID_LEAGUE
 import com.amary.kade_footballeague.data.rest.response.model.ListLeagues
-import com.amary.kade_footballeague.ui.detail_liga.DetailLigaActivity
+import com.amary.kade_footballeague.ui.detail_league.DetailScheduleActivity
 import com.amary.kade_footballeague.utils.GlideApp
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.item_league.view.*
@@ -46,7 +46,7 @@ class MainAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerV
             if (item.strSport == "Soccer") {
                 itemView.tvLeague.text = item.strLeague
                 itemView.setOnClickListener {
-                    val intent = Intent(context, DetailLigaActivity::class.java)
+                    val intent = Intent(context, DetailScheduleActivity::class.java)
                     intent.putExtra(ID_LEAGUE, item.idLeague)
                     context.startActivity(intent)
                 }

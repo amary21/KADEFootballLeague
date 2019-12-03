@@ -15,9 +15,10 @@ import com.amary.kade_footballeague.R
 import com.amary.kade_footballeague.data.rest.ApiClient
 import com.amary.kade_footballeague.data.rest.ApiRepository
 import com.amary.kade_footballeague.data.rest.response.model.ListLeagues
-import com.amary.kade_footballeague.ui.jadwal_favorite.JadwalFavActivity
+import com.amary.kade_footballeague.ui.schedule_favorite.ScheduleFavActivity
 import com.amary.kade_footballeague.ui.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 
 @Suppress("UNCHECKED_CAST")
 class MainActivity : AppCompatActivity() {
@@ -78,8 +79,6 @@ class MainActivity : AppCompatActivity() {
                         })
                     }
                 }
-
-
             }
 
         })
@@ -97,8 +96,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         fabFavoriteEvent.setOnClickListener {
-            val intent = Intent(this, JadwalFavActivity::class.java)
-            startActivity(intent)
+            startActivity<ScheduleFavActivity>()
         }
     }
 

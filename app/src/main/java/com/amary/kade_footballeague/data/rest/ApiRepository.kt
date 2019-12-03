@@ -92,20 +92,22 @@ class ApiRepository(private val apiInterface: ApiInterface) {
     }
 
     @SuppressLint("CheckResult")
-    fun getDetailMatch(id : String) : LiveData<EventsResponse>{
+    fun getDetailMatch(id: String?) : LiveData<EventsResponse>{
         val dataEvent = MutableLiveData<EventsResponse>()
-        apiInterface.getDetailMatch(id)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                if (it != null){
-                    dataEvent.value = it
-                    network.value = true
-                }
-            },{
-                network.value = false
-                Log.e("NEXT ERROR", it.message.toString())
-            })
+        id?.let { it ->
+            apiInterface.getDetailMatch(it)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    if (it != null){
+                        dataEvent.value = it
+                        network.value = true
+                    }
+                },{
+                    network.value = false
+                    Log.e("NEXT ERROR", it.message.toString())
+                })
+        }
         return dataEvent
     }
 
