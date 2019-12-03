@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Kade - FootbalLague</string>
-    <string name="nama_liga">Nama Liga</string>
-    <string name="daftar_liga">Daftar Liga</string>
+    <string name="league_name">League Name</string>
+    <string name="list_leauge">League List</string>
     <string name="description">Description</string>
     <string name="search">search</string>
     <string name="search_event">Search Event</string>
@@ -9,14 +9,14 @@
     <string name="home_team_vs_away_team">Home team vs away team</string>
     <string name="date_event">date event</string>
     <string name="score_help">:</string>
-    <string name="ft">FT</string>
-    <string name="score_awal">0</string>
+    <string name="full_time">FT</string>
+    <string name="first_score">0</string>
     <string name="home_team">Home Team</string>
     <string name="away_team">Away Team</string>
     <string name="time_event">time event</string>
     <string name="next_match">Next Match</string>
     <string name="previous_match">Previous Match</string>
-    <string name="_0">0</string>
+    <string name="zero">0</string>
     <string name="line_up">Line Up</string>
     <string name="goalkeeper">Goalkeeper</string>
     <string name="defense">Defense</string>

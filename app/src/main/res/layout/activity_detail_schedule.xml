@@ -20,8 +20,7 @@
             android:fitsSystemWindows="true"
             android:background="@android:color/white"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:toolbarId="@+id/toolbar">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
 
             <com.facebook.shimmer.ShimmerFrameLayout
@@ -109,7 +108,7 @@
                             android:id="@+id/txtStatus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/ft"
+                            android:text="@string/full_time"
                             android:textColor="@android:color/white"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +121,7 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="8dp"
                             android:layout_marginBottom="8dp"
-                            android:text="@string/score_awal"
+                            android:text="@string/first_score"
                             android:textColor="@android:color/white"
                             android:textSize="60sp"
                             app:layout_constraintBottom_toBottomOf="@+id/txtCenter"
@@ -136,7 +135,7 @@
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="8dp"
                             android:layout_marginBottom="8dp"
-                            android:text="@string/score_awal"
+                            android:text="@string/first_score"
                             android:textColor="@android:color/white"
                             android:textSize="60sp"
                             app:layout_constraintBottom_toBottomOf="@+id/txtCenter"

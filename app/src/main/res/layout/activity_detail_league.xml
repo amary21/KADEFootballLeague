@@ -19,8 +19,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:toolbarId="@+id/toolbar">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/vpFanArt"

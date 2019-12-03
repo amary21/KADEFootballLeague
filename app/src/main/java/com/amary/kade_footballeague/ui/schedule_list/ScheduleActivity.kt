@@ -27,7 +27,7 @@ class ScheduleActivity : AppCompatActivity() {
         }
 
 
-        setupViewPager(jadwalContainer, idJadwal)
+        setupViewPager(scheduleContainer, idJadwal)
     }
 
     private fun setupViewPager(viewPager: ViewPager, id: String?) {
@@ -47,8 +47,8 @@ class ScheduleActivity : AppCompatActivity() {
 
         viewPager.adapter = adapter
 
-        viewPager.addOnPageChangeListener(TabLayoutOnPageChangeListener(tabMenuJadwal))
-        tabMenuJadwal.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+        viewPager.addOnPageChangeListener(TabLayoutOnPageChangeListener(tabMenuSchedule))
+        tabMenuSchedule.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabReselected(p0: TabLayout.Tab?) {
 
             }

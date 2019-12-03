@@ -57,8 +57,8 @@ class DetailScheduleActivity : AppCompatActivity() {
                     }
                 }
             }else{
-                smDetaiLiga.visibility = View.VISIBLE
-                smDetaiLiga.startShimmer()
+                smDetaiLeague.visibility = View.VISIBLE
+                smDetaiLeague.startShimmer()
             }
         })
 
@@ -70,8 +70,8 @@ class DetailScheduleActivity : AppCompatActivity() {
     }
 
     private fun initDetail(item: LeagueDet) {
-        smDetaiLiga.stopShimmer()
-        smDetaiLiga.visibility = View.GONE
+        smDetaiLeague.stopShimmer()
+        smDetaiLeague.visibility = View.GONE
         imgBadgeDetail.visibility = View.VISIBLE
         tvTitleLeague.visibility = View.VISIBLE
         tvCountryLeague.visibility = View.VISIBLE

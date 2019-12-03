@@ -25,7 +25,7 @@
                     android:layout_margin="8dp"
                     android:padding="8dp"
                     android:layout_toStartOf="@id/imgCoverLeague"
-                    android:text="@string/nama_liga"
+                    android:text="@string/league_name"
                     android:textColor="@android:color/white"
                     android:textSize="15sp"
                     android:textStyle="bold" />

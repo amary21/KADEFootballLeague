@@ -16,7 +16,7 @@ class ScheduleFavActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_schedule_fav)
 
-        setupViewPager(jadwalContainerFav)
+        setupViewPager(scheduleContainerFav)
     }
 
     private fun setupViewPager(viewPager: ViewPager) {
@@ -30,8 +30,8 @@ class ScheduleFavActivity : AppCompatActivity() {
 
         viewPager.adapter = adapter
 
-        viewPager.addOnPageChangeListener(TabLayoutOnPageChangeListener(tabMenuJadwalFav))
-        tabMenuJadwalFav.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+        viewPager.addOnPageChangeListener(TabLayoutOnPageChangeListener(tabMenuScheduleFav))
+        tabMenuScheduleFav.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabReselected(p0: TabLayout.Tab?) {
 
             }
