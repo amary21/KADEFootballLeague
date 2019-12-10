@@ -139,5 +139,5 @@ dependencies {
     implementation "androidx.test.espresso:espresso-idling-resource:3.2.0"
 
     // Dependencies for viewpager
-    implementation 'com.asksira.android:loopingviewpager:1.1.2'
+    implementation 'com.github.tizisdeepan:dots:1.0.1'
 }

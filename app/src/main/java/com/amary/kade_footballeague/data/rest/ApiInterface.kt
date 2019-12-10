@@ -44,4 +44,9 @@ interface ApiInterface {
     fun getTeamAll(
         @Query("id") id: String
     ): Observable<TeamsResponse>
+
+    @GET("lookupteam.php")
+    fun getDetailTeam(
+        @Query("id") id :String
+    ): Observable<TeamsResponse>
 }

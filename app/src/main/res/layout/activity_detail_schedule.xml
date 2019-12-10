@@ -211,10 +211,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
+        android:clickable="true"
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|center"
-        app:srcCompat="@drawable/ic_bookmark_not" />
+        app:srcCompat="@drawable/ic_bookmark_not"
+        android:focusable="true" />
 
     <include layout="@layout/content_detail_schedule" />
 

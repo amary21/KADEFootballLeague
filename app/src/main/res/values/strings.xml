@@ -29,7 +29,6 @@
     <string name="team">Team</string>
     <string name="match">Match</string>
     <string name="standings">Standings</string>
-    <string name="numbering">1</string>
     <string name="name_team">Manchester united</string>
     <string name="played">38</string>
     <string name="goalsforr">151</string>
@@ -50,4 +49,7 @@
     <string name="ttotal">P</string>
     <string name="info">Info</string>
     <string name="teams">Teams</string>
+    <string name="badge_team">Badge Team</string>
+    <string name="jersey_team">Jersey Team</string>
+    <string name="description_team">Description Team</string>
 </resources>

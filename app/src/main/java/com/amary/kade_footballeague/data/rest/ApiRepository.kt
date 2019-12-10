@@ -187,4 +187,23 @@ class ApiRepository(private val apiInterface: ApiInterface) {
 
         return dataTeam
     }
+
+    @SuppressLint("CheckResult")
+    fun getDetailTeam(id: String) : LiveData<TeamsResponse>{
+        val dataTeam = MutableLiveData<TeamsResponse>()
+        apiInterface.getDetailTeam(id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                if (it != null){
+                    dataTeam.value = it
+                    network.value = true
+                }
+            },{
+                Log.e("Team All Error", it.message.toString())
+                network.value = false
+            })
+
+        return dataTeam
+    }
 }

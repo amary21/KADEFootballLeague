@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -53,9 +54,22 @@ class TeamFragment : Fragment() {
             viewModel.getTeamAll(idLeague).observe(this, Observer {
                 if (it != null){
                     teamsAdapter?.setTeam(it.teams)
+                    rvTeam.visibility = View.VISIBLE
+                    smTeams.stopShimmer()
+                    smTeams.visibility = View.GONE
                 }
             })
         }
+
+        viewModel.statusNetwork().observe(this, Observer {
+            if (!it!!) {
+                Toast.makeText(
+                    activity,
+                    "Connection error or data not found",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
 
     }
 

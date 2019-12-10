@@ -4,6 +4,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import com.amary.kade_footballeague.data.local.model.NextMatch
 import com.amary.kade_footballeague.data.local.model.PrevMatch
+import com.amary.kade_footballeague.data.local.model.TeamFav
 import org.jetbrains.anko.db.*
 
 class DBHelper(context: Context) : ManagedSQLiteOpenHelper(context, "Favorite.db", null, 1) {
@@ -45,11 +46,18 @@ class DBHelper(context: Context) : ManagedSQLiteOpenHelper(context, "Favorite.db
             PrevMatch.STR_TIME to TEXT,
             PrevMatch.IMG_HOME_BADGE to TEXT,
             PrevMatch.IMG_AWAY_BADGE to TEXT)
+
+        db.createTable(TeamFav.TABLE_TEAM, true,
+            TeamFav.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+            TeamFav.ID_TEAM to TEXT + UNIQUE,
+            TeamFav.STR_TEAM to TEXT,
+            TeamFav.STR_TEAM_BADGE to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.dropTable(NextMatch.TABLE_NEXT, true)
         db.dropTable(PrevMatch.TABLE_PREV, true)
+        db.dropTable(TeamFav.TABLE_TEAM, true)
     }
 
 }

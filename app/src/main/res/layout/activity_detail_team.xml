@@ -21,7 +21,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <androidx.viewpager.widget.ViewPager
-                android:id="@+id/vpFanArt"
+                android:id="@+id/vpFanArtTeam"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
@@ -30,8 +30,9 @@
                 android:clipToPadding="false"
                 android:foregroundGravity="center"
                 app:layout_collapseMode="parallax"/>
+
             <com.make.dots.dotsindicator.DotsIndicator
-                android:id="@+id/dotsIndicator"
+                android:id="@+id/dotsIndicatorTeam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -44,38 +45,18 @@
                 app:dot_width="8dp" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabMenuDetailLeague"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tabGravity="fill"
-            app:tabIndicatorColor="@color/colorPrimary"
-            app:tabIndicatorHeight="3dp"
-            app:tabMaxWidth="0dp"
-            app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/colorPrimary"
-            app:tabTextColor="@android:color/darker_gray">
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/info" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/teams" />
-        </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_FavoriteTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:clickable="true"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@drawable/ic_bookmark_not"
+        android:focusable="true" />
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/detailLeagueContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    <include layout="@layout/content_detail_team"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

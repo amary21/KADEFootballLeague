@@ -5,10 +5,25 @@
     android:layout_height="match_parent"
     tools:context=".ui.detail_league.team.TeamFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTeam"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_teams"/>
+        android:layout_height="match_parent">
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/smTeams"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/placeholder_teams" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTeam"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_teams"/>
+
+    </RelativeLayout>
 
 </androidx.core.widget.NestedScrollView>

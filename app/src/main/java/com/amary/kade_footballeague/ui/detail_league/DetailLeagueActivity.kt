@@ -49,8 +49,9 @@ class DetailLeagueActivity : AppCompatActivity() {
         fanArtAdater = DetailLeagueAdapter(this)
         viewModel = getViewModel(apiRepository)
 
-        fanArtAdater = DetailLeagueAdapter(this)
         vpFanArt.adapter = fanArtAdater
+        dotsIndicator.setViewPager(vpFanArt)
+        vpFanArt.adapter?.registerDataSetObserver(dotsIndicator.dataSetObserver)
 
         viewModel.getLeagueDetail(id!!).observe(this, Observer {
             if (it != null){
