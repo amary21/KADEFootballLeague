@@ -60,6 +60,7 @@ class DetailScheduleActivity : AppCompatActivity() {
             if (it != null) {
                 isNotEmptyData()
                 for (i in it.events!!) {
+                    Log.e("DATA GAMBAR", "${i.idHomeTeam} vs ${i.idAwayTeam}")
                     initLogo(i.idHomeTeam, i.idAwayTeam)
                     initData(i)
                     if (i.strHomeLineupGoalkeeper.isNotEmpty()) {

@@ -40,32 +40,104 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLeague"
         android:layout_margin="8dp"
+        android:visibility="gone"
         android:layout_below="@+id/txtCover"
         android:layout_width="match_parent"
-        android:visibility="gone"
         android:layout_height="match_parent"
         tools:listitem="@layout/item_league"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabSearchEvent"
+    <LinearLayout
+        android:id="@+id/lySearchEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
         android:visibility="gone"
+        android:layout_above="@+id/lySearchTeam"
         android:layout_alignParentEnd="true"
-        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="@dimen/fab_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="16dp"
+            android:text="@string/match"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabSearchEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/darker_gray"
+            app:fabSize="mini"
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_schedule"
+            android:tint="@android:color/white"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lySearchTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:layout_above="@+id/fabSearch"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="@dimen/fab_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:layout_marginEnd="16dp"
+            android:text="@string/team"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabSearchTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/darker_gray"
+            app:fabSize="mini"
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_team"
+            android:tint="@android:color/white"/>
+
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fabFavoriteEvent"
+        android:layout_alignParentEnd="true"
+        android:clickable="true"
+        android:visibility="gone"
+        app:fabSize="normal"
+        android:focusable="true"
+        android:layout_marginEnd="@dimen/fab_margin"
         app:srcCompat="@drawable/ic_search" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabFavoriteEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/fabSearchEvent"
         android:layout_alignParentEnd="true"
-        android:visibility="gone"
+        android:layout_alignParentBottom="true"
         android:tint="@android:color/white"
+        android:clickable="true"
+        app:fabSize="normal"
+        android:visibility="gone"
+        android:focusable="true"
         android:backgroundTint="@android:color/holo_blue_light"
-        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_bookmark" />
 
 </RelativeLayout>

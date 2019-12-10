@@ -1,9 +1,9 @@
 package com.amary.kade_footballeague.ui.main
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -16,7 +16,8 @@ import com.amary.kade_footballeague.data.rest.ApiClient
 import com.amary.kade_footballeague.data.rest.ApiRepository
 import com.amary.kade_footballeague.data.rest.response.model.ListLeagues
 import com.amary.kade_footballeague.ui.schedule_favorite.ScheduleFavActivity
-import com.amary.kade_footballeague.ui.search.SearchActivity
+import com.amary.kade_footballeague.ui.search_event.SearchEventActivity
+import com.amary.kade_footballeague.ui.search_team.SearchTeamActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 
@@ -34,6 +35,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val showLayout = AnimationUtils.loadAnimation(this, R.anim.show_layout)
+        val hideLayout = AnimationUtils.loadAnimation(this, R.anim.hide_layout)
+
         apiRepository = ApiRepository(apiService)
         mainAdapter = MainAdapter(this)
         viewModel = getViewModel(apiRepository)
@@ -45,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.getLeague().observe(this, Observer {
             if (it != null){
-                for (item in it.leagues) {
+                for (item in it.leagues!!) {
                     if (item.strSport == "Soccer") {
                         viewModel.getIconLeagues(item.idLeague).observe(this, Observer { icon ->
                             if (icon.leagues[0].strBadge != null) {
@@ -74,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                             rvLeague.visibility = View.VISIBLE
                             smMain.stopShimmer()
                             smMain.visibility = View.GONE
-                            fabSearchEvent.visibility = View.VISIBLE
+                            fabSearch.visibility = View.VISIBLE
                             fabFavoriteEvent.visibility = View.VISIBLE
                         })
                     }
@@ -90,12 +94,48 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        fabSearch.setOnClickListener {
+            if (lySearchEvent.visibility == View.VISIBLE && lySearchTeam.visibility == View.VISIBLE){
+                lySearchEvent.visibility = View.GONE
+                lySearchTeam.visibility = View.GONE
+                lySearchEvent.startAnimation(hideLayout)
+                lySearchTeam.startAnimation(hideLayout)
+            }else{
+                lySearchEvent.visibility = View.VISIBLE
+                lySearchTeam.visibility = View.VISIBLE
+                lySearchEvent.startAnimation(showLayout)
+                lySearchTeam.startAnimation(showLayout)
+            }
+        }
+
         fabSearchEvent.setOnClickListener {
-            val intent = Intent(this, SearchActivity::class.java)
-            startActivity(intent)
+            if (lySearchEvent.visibility == View.VISIBLE && lySearchTeam.visibility == View.VISIBLE){
+                lySearchEvent.visibility = View.GONE
+                lySearchTeam.visibility = View.GONE
+                lySearchEvent.startAnimation(hideLayout)
+                lySearchTeam.startAnimation(hideLayout)
+            }
+
+            startActivity<SearchEventActivity>()
+        }
+
+        fabSearchTeam.setOnClickListener {
+            if (lySearchEvent.visibility == View.VISIBLE && lySearchTeam.visibility == View.VISIBLE){
+                lySearchEvent.visibility = View.GONE
+                lySearchTeam.visibility = View.GONE
+                lySearchEvent.startAnimation(hideLayout)
+                lySearchTeam.startAnimation(hideLayout)
+            }
+            startActivity<SearchTeamActivity>()
         }
 
         fabFavoriteEvent.setOnClickListener {
+            if (lySearchEvent.visibility == View.VISIBLE && lySearchTeam.visibility == View.VISIBLE){
+                lySearchEvent.visibility = View.GONE
+                lySearchTeam.visibility = View.GONE
+                lySearchEvent.startAnimation(hideLayout)
+                lySearchTeam.startAnimation(hideLayout)
+            }
             startActivity<ScheduleFavActivity>()
         }
     }

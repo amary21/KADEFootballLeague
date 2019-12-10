@@ -148,4 +148,43 @@ class ApiRepository(private val apiInterface: ApiInterface) {
         return dataSearch
 
     }
+
+
+    @SuppressLint("CheckResult")
+    fun getStandingsLeague(idLeague: String) : LiveData<StandingsResponse>{
+        val dataStanding = MutableLiveData<StandingsResponse>()
+        apiInterface.getStandingsLeague(idLeague)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                if (it != null){
+                    dataStanding.value = it
+                    network.value = true
+                }
+            },{
+                Log.e("Standing Error", it.message.toString())
+                network.value = false
+            })
+
+        return dataStanding
+    }
+
+    @SuppressLint("CheckResult")
+    fun getTeamAll(id: String) : LiveData<TeamsResponse>{
+        val dataTeam = MutableLiveData<TeamsResponse>()
+        apiInterface.getTeamAll(id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                if (it != null){
+                    dataTeam.value = it
+                    network.value = true
+                }
+            },{
+                Log.e("Team All Error", it.message.toString())
+                network.value = false
+            })
+
+        return dataTeam
+    }
 }

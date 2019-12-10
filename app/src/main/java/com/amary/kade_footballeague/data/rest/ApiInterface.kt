@@ -34,4 +34,14 @@ interface ApiInterface {
     fun getSearchEvent(
         @Query("e") e: String
     ): Observable<SearchResponse>
+
+    @GET("lookuptable.php?")
+    fun getStandingsLeague(
+        @Query("l") id : String
+    ): Observable<StandingsResponse>
+
+    @GET("lookup_all_teams.php")
+    fun getTeamAll(
+        @Query("id") id: String
+    ): Observable<TeamsResponse>
 }
