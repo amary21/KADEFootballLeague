@@ -15,7 +15,7 @@ import com.amary.kade_footballeague.R
 import com.amary.kade_footballeague.data.rest.ApiClient
 import com.amary.kade_footballeague.data.rest.ApiRepository
 import com.amary.kade_footballeague.data.rest.response.model.ListLeagues
-import com.amary.kade_footballeague.ui.schedule_favorite.ScheduleFavActivity
+import com.amary.kade_footballeague.ui.league_favorite.LeagueFavActivity
 import com.amary.kade_footballeague.ui.search_event.SearchEventActivity
 import com.amary.kade_footballeague.ui.search_team.SearchTeamActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() {
                 lySearchEvent.startAnimation(hideLayout)
                 lySearchTeam.startAnimation(hideLayout)
             }
-            startActivity<ScheduleFavActivity>()
+            startActivity<LeagueFavActivity>()
         }
     }
 

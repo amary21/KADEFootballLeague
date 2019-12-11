@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.schedule_favorite.next.NextFavFragment">
+    tools:context=".ui.league_favorite.next.NextFavFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFavNext"

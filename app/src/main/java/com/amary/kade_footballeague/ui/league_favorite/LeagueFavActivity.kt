@@ -1,16 +1,17 @@
-package com.amary.kade_footballeague.ui.schedule_favorite
+package com.amary.kade_footballeague.ui.league_favorite
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.amary.kade_footballeague.R
-import com.amary.kade_footballeague.ui.schedule_favorite.next.NextFavFragment
-import com.amary.kade_footballeague.ui.schedule_favorite.previous.PrevFavFragment
+import com.amary.kade_footballeague.ui.league_favorite.next.NextFavFragment
+import com.amary.kade_footballeague.ui.league_favorite.previous.PrevFavFragment
+import com.amary.kade_footballeague.ui.league_favorite.teams.TeamFavFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.TabLayoutOnPageChangeListener
 import kotlinx.android.synthetic.main.activity_schedule_fav.*
 
-class ScheduleFavActivity : AppCompatActivity() {
+class LeagueFavActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,13 +21,15 @@ class ScheduleFavActivity : AppCompatActivity() {
     }
 
     private fun setupViewPager(viewPager: ViewPager) {
-        val adapter = ScheduleFavTabAdapter(supportFragmentManager)
+        val adapter = LeagueFavTabAdapter(supportFragmentManager)
 
         val fragNext = NextFavFragment()
         val fragPrev = PrevFavFragment()
+        val fragTeam = TeamFavFragment()
 
         adapter.addFrag(fragNext)
         adapter.addFrag(fragPrev)
+        adapter.addFrag(fragTeam)
 
         viewPager.adapter = adapter
 

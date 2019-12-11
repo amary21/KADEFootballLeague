@@ -52,4 +52,6 @@
     <string name="badge_team">Badge Team</string>
     <string name="jersey_team">Jersey Team</string>
     <string name="description_team">Description Team</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

@@ -1,10 +1,10 @@
-package com.amary.kade_footballeague.ui.schedule_favorite
+package com.amary.kade_footballeague.ui.league_favorite
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-class ScheduleFavTabAdapter(fm : FragmentManager)
+class LeagueFavTabAdapter(fm : FragmentManager)
     : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     private val mFragmentList: ArrayList<Fragment> = ArrayList()

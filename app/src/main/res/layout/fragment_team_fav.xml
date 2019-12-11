@@ -3,13 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.league_favorite.previous.PrevFavFragment">
+    tools:context=".ui.league_favorite.teams.TeamFavFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFavPrevious"
-        android:layout_margin="8dp"
+        android:id="@+id/rvTeamFav"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_schedule" />
-
+        tools:listitem="@layout/item_teams"/>
 </FrameLayout>
