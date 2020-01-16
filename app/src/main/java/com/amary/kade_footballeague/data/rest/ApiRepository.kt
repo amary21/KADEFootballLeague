@@ -206,4 +206,23 @@ class ApiRepository(private val apiInterface: ApiInterface) {
 
         return dataTeam
     }
+
+    @SuppressLint("CheckResult")
+    fun getSearchTeam(query : String) : LiveData<TeamsResponse>{
+        val dataSearch = MutableLiveData<TeamsResponse>()
+        apiInterface.getSearchTeam(query)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                if (it != null){
+                    dataSearch.value = it
+                    network.value = true
+                }
+            },{
+                Log.e("Team Search Error", it.message.toString())
+                network.value = false
+            })
+
+        return dataSearch
+    }
 }

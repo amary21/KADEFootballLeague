@@ -561,7 +561,8 @@
             android:paddingEnd="0dp"
             android:src="@color/placeholder_bg"
             android:layout_gravity="center"
-            android:contentDescription="@string/todo" />
+            android:contentDescription="@string/todo"
+            tools:ignore="TooManyViews" />
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"

@@ -37,8 +37,8 @@ class MainAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerV
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as LeaguesItemViewHolder).bind(getItem(position), context)
-    }
+            (holder as LeaguesItemViewHolder).bind(getItem(position), context)
+        }
 
 
     class LeaguesItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {

@@ -49,4 +49,9 @@ interface ApiInterface {
     fun getDetailTeam(
         @Query("id") id :String
     ): Observable<TeamsResponse>
+
+    @GET("searchteams.php")
+    fun  getSearchTeam(
+        @Query("t") t : String
+    ) : Observable<TeamsResponse>
 }
